@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.277,=D:\Programm\File1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.669,=D:\Programm\Project1.otares</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.h,D:\ДИПЛОМ\ДИПЛОМ 2\Unit1.h=C:\Users\Alexander\Documents\RAD Studio\Projects\Unit1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.h,D:\ДИПЛОМ\ДИПЛОМ 2\TabbedView.h=D:\ДИПЛОМ\ДИПЛОМ 2\File1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.459,=D:\Programm\DBModels.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.802,D:\Programm\File1.h=D:\Programm\Helper.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.cpp,D:\ДИПЛОМ\ДИПЛОМ 2\TabbedView.cpp=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.cpp,D:\ДИПЛОМ\ДИПЛОМ 2\TabbedView.cpp=D:\ДИПЛОМ\ДИПЛОМ 2\File1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.cpp,D:\ДИПЛОМ\ДИПЛОМ 2\TabbedView.cpp=D:\ДИПЛОМ\ДИПЛОМ 2\File1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.dfm,D:\ДИПЛОМ\ДИПЛОМ 2\Unit1.dfm=C:\Users\Alexander\Documents\RAD Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.cbproj,D:\ДИПЛОМ\ДИПЛОМ 2\Project1.cbproj=C:\Users\Alexander\Documents\RAD Studio\Projects\Project1.cbproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.cpp,D:\ДИПЛОМ\ДИПЛОМ 2\Unit1.cpp=C:\Users\Alexander\Documents\RAD Studio\Projects\Unit1.cpp</Transaction>
+  </Transactions>
+</BorlandProject>
