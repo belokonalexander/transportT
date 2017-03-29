@@ -3,17 +3,18 @@
 #pragma hdrstop
 #include <ctime>
 #include <sys/stat.h>
-#include "Unit1.h"
+#include "Main.h"
 #include <windows.h>
 #include<iostream>
 #include<stdlib.h>
 #include <stdio.h>
 #include <time.h>
-#include <vector>
+
 #include "TabbedView.h"
-#include "DBModels.h"
+
 #include "Helper.h"
 #include <map>
+#include "TModule.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -118,7 +119,7 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 			}
 
 
-				 initDatabase(date.DateString(), date2.DateString());
+				 initDatabase(date.FormatString("yyyymmdd"), date2.FormatString("yyyymmdd"));
 				  //initRecievers(date.DateString(), date2.DateString());
 
 
@@ -162,7 +163,13 @@ void initApplicationTabs(){
 
 void initDatabase(String from, String to){
 
-		//Form1->Memo1->Lines->Add(from + "/" + to);
+		Form1->Memo1->Lines->Add(from + "/" + to);
+
+		providers.clear();
+		recievers.clear();
+		tarifs.clear();
+		results.clear();
+        Form1->ExecuteButton->Enabled = false;
 
 		TFDQuery *query;
 		query = new TFDQuery(NULL);
@@ -171,7 +178,7 @@ void initDatabase(String from, String to){
 
 		query->SQL->Text = "SELECT * FROM dbo.getProviders(\'" + from + "\',\'" + to + "\') ORDER BY FULLNAME";
 		query->Open();
-		Form1->Memo1->Text = "";
+		//Form1->Memo1->Text = "";
 
 		Form1->ProvidersGrid->RowCount = 2;
 		Form1->ProvidersCount->Caption = "0";
@@ -264,7 +271,11 @@ void initDatabase(String from, String to){
 	Form1->TarifsGrid->RowCount = Form1->TarifsGrid->RowCount - 1;
     Form1->ResultsGrid->RowCount = Form1->ResultsGrid->RowCount - 1;
 
-    query->Disconnect();
+	query->Disconnect();
+
+	if(results.size()>0)
+		Form1->ExecuteButton->Enabled = true;
+
 }
 
 
@@ -340,3 +351,19 @@ void initResultsView(Result * r){
 
 
 }
+void __fastcall TForm1::ExecuteButtonClick(TObject *Sender)
+{
+	Form1->Memo1->Lines->Add("Click");
+
+	TModuleForm->setData(*providers, *recievers, *tarifs, *results);
+	TModuleForm->Show();
+
+//	std::vector<Provider> providers;
+//	std::vector<Reciever> recievers;
+//	std::vector<Tarif> tarifs;
+//	std::vector<Result> results;
+
+
+}
+//---------------------------------------------------------------------------
+

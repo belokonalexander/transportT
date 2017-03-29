@@ -8,3 +8,8 @@ float round (double value)
 }
 
 
+
+float roundA(double value)
+{
+   return  (int)floor(value + 0.5);
+}
