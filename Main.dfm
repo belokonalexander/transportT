@@ -305,6 +305,17 @@ object Form1: TForm1
             Height = 13
             Caption = '0'
           end
+          object Button2: TButton
+            AlignWithMargins = True
+            Left = 640
+            Top = 4
+            Width = 147
+            Height = 51
+            Align = alRight
+            Caption = #1056#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1090#1100
+            TabOrder = 0
+            OnClick = Button2Click
+          end
         end
         object RecieversGrid: TStringGrid
           Left = 1

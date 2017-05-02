@@ -176,14 +176,38 @@
         <None Include="TabbedView.h">
             <BuildOrder>4</BuildOrder>
         </None>
+        <None Include="TabbedView2.h">
+            <BuildOrder>11</BuildOrder>
+        </None>
         <CppCompile Include="TModule.cpp">
             <Form>TModuleForm</Form>
             <FormType>dfm</FormType>
             <DependentOn>TModule.h</DependentOn>
             <BuildOrder>7</BuildOrder>
         </CppCompile>
-        <FormResources Include="Main.dfm"/>
+        <CppCompile Include="TReport.cpp">
+            <Form>Form2</Form>
+            <FormType>dfm</FormType>
+            <DependentOn>TReport.h</DependentOn>
+            <BuildOrder>8</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="Unit3.cpp">
+            <Form>Form3</Form>
+            <FormType>dfm</FormType>
+            <DependentOn>Unit3.h</DependentOn>
+            <BuildOrder>9</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="Unit4.cpp">
+            <Form>Form4</Form>
+            <FormType>dfm</FormType>
+            <DependentOn>Unit4.h</DependentOn>
+            <BuildOrder>10</BuildOrder>
+        </CppCompile>
         <FormResources Include="TModule.dfm"/>
+        <FormResources Include="Unit3.dfm"/>
+        <FormResources Include="TReport.dfm"/>
+        <FormResources Include="Main.dfm"/>
+        <FormResources Include="Unit4.dfm"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

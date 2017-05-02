@@ -14,7 +14,9 @@
 
 #include "Helper.h"
 #include <map>
+
 #include "TModule.h"
+#include "Unit3.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -30,6 +32,8 @@ std::vector<Reciever> recievers;
 std::vector<Tarif> tarifs;
 std::vector<Result> results;
 
+
+
 //std::vector<TabbedView> items;
 void initApplicationTabs();
 void initDatabase(String, String);
@@ -39,7 +43,7 @@ void initProvidersView(Provider*);
 void initRecieversView(Reciever*);
 void initTarifsView(Tarif*);
 void initResultsView(Result*);
-
+      String reportName;
 //---------------------------------------------------------------------------
 void __fastcall TForm1::FormCreate(TObject *Sender)
 {
@@ -65,12 +69,14 @@ Edit4->Text = dtoday;
 Edit5->Text = mtoday;
  */
 
- Edit1->Text="01";
+ Edit1->Text="03";
 Edit2->Text= "02";
-Edit4->Text = "01";
+Edit4->Text = "03";
 Edit5->Text ="02";
 
 initApplicationTabs();
+
+
 
 }
 //---------------------------------------------------------------------------
@@ -128,6 +134,9 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+String to_g;
+String from_g;
+
 void initApplicationTabs(){
 
 
@@ -163,8 +172,11 @@ void initApplicationTabs(){
 
 void initDatabase(String from, String to){
 
-		Form1->Memo1->Lines->Add(from + "/" + to);
+		to_g = to;
+        from_g = from;
 
+		Form1->Memo1->Lines->Add(from + "/" + to);
+		reportName= "";
 		providers.clear();
 		recievers.clear();
 		tarifs.clear();
@@ -176,7 +188,7 @@ void initDatabase(String from, String to){
 
 		query->Connection = Form1->TransportdbConnection;
 
-		query->SQL->Text = "SELECT * FROM dbo.getProviders(\'" + from + "\',\'" + to + "\') ORDER BY FULLNAME";
+		query->SQL->Text = "SELECT * FROM dbo.getProviders(\'" + from + "\',\'" + to + "\') ORDER BY P_ST_FULLNAME";
 		query->Open();
 		//Form1->Memo1->Text = "";
 
@@ -198,7 +210,7 @@ void initDatabase(String from, String to){
 
 		while (!query->Eof) {
 
-		Provider * p = new Provider(query->FieldByName("FULLNAME")->AsString,
+		Provider * p = new Provider(query->FieldByName("P_ST_FULLNAME")->AsString,
 				   query-> FieldByName("ID_ST_TS_FROM")->AsString.ToInt(),
 				   query-> FieldByName("s")->AsString.ToInt());
 
@@ -212,14 +224,16 @@ void initDatabase(String from, String to){
 
 	query->Close();
 
-	query->SQL->Text = "SELECT * FROM dbo.getRecievers(\'" + from + "\',\'" + to + "\') ORDER BY FULLNAME";
+	query->SQL->Text = "SELECT * FROM dbo.getRecievers(\'" + from + "\',\'" + to + "\') ORDER BY R_ST_FULLNAME";
 	query->Open();
 
 	while (!query->Eof) {
 
-		Reciever * r = new Reciever(query->FieldByName("FULLNAME")->AsString,
+		Reciever * r = new Reciever(query->FieldByName("R_ST_FULLNAME")->AsString,
 				   query-> FieldByName("ID_ST_TS_TO")->AsString.ToInt(),
-				   query-> FieldByName("s")->AsString.ToInt());
+				   query-> FieldByName("s")->AsString.ToInt(),
+				   query-> FieldByName("R_FACTORY_ID")->AsInteger,
+				   query-> FieldByName("R_FACTORY_NAME")->AsString);
 
 		recievers.push_back(*r);
 		initRecieversView(r);
@@ -228,13 +242,13 @@ void initDatabase(String from, String to){
 
 	query->Close();
 
-	query->SQL->Text = "SELECT * FROM dbo.getTarifMatrix(\'" + from + "\',\'" + to + "\') ORDER BY FULLNAME_1, FULLNAME_TO";
+	query->SQL->Text = "SELECT * FROM dbo.getTarifMatrix(\'" + from + "\',\'" + to + "\') ORDER BY P_ST_FULLNAME, R_ST_FULLNAME";
 	query->Open();
 
 	while (!query->Eof) {
 
-		Tarif * t = new Tarif(query->FieldByName("FULLNAME_1")->AsString,
-				   query-> FieldByName("FULLNAME_TO")->AsString,
+		Tarif * t = new Tarif(query->FieldByName("P_ST_FULLNAME")->AsString,
+				   query-> FieldByName("R_ST_FULLNAME")->AsString,
 				   round( query-> FieldByName("COST")->AsFloat));
 
 		tarifs.push_back(*t);
@@ -244,13 +258,13 @@ void initDatabase(String from, String to){
 
 	query->Close();
 
-	query->SQL->Text = "SELECT * FROM dbo.getTransportItog(\'" + from + "\',\'" + to + "\') ORDER BY NAME_SENDER, NAME_RECIPIENT";
+	query->SQL->Text = "SELECT * FROM dbo.getTransportItog(\'" + from + "\',\'" + to + "\') ORDER BY P_ST_FULLNAME, R_ST_FULLNAME";
 	query->Open();
 
 	while (!query->Eof) {
 
-		Result * r = new Result(query->FieldByName("NAME_SENDER")->AsString,
-				   query-> FieldByName("NAME_RECIPIENT")->AsString,
+		Result * r = new Result(query->FieldByName("P_ST_FULLNAME")->AsString,
+				   query-> FieldByName("R_ST_FULLNAME")->AsString,
 				   round( query-> FieldByName("COST")->AsFloat),
 				   query-> FieldByName("VALUE")->AsInteger,
 				   round( query-> FieldByName("ITOG")->AsFloat)
@@ -272,6 +286,12 @@ void initDatabase(String from, String to){
     Form1->ResultsGrid->RowCount = Form1->ResultsGrid->RowCount - 1;
 
 	query->Disconnect();
+
+
+
+    reportName = from+to;
+
+
 
 	if(results.size()>0)
 		Form1->ExecuteButton->Enabled = true;
@@ -353,17 +373,52 @@ void initResultsView(Result * r){
 }
 void __fastcall TForm1::ExecuteButtonClick(TObject *Sender)
 {
-	Form1->Memo1->Lines->Add("Click");
 
-	TModuleForm->setData(*providers, *recievers, *tarifs, *results);
-	TModuleForm->Show();
 
-//	std::vector<Provider> providers;
-//	std::vector<Reciever> recievers;
-//	std::vector<Tarif> tarifs;
-//	std::vector<Result> results;
+
+
+
+	TModuleForm->setData(reportName, &providers, &recievers, &tarifs, &results);
+	TModuleForm->ShowModal();
 
 
 }
 //---------------------------------------------------------------------------
 
+
+void __fastcall TForm1::Button2Click(TObject *Sender)
+{
+   Form3->setData(&recievers);
+   Form3->ShowModal();
+}
+//---------------------------------------------------------------------------
+
+
+void TForm1::updateRecievers(std::vector<Reciever> *r){
+
+    Form1->RecieversGrid->RowCount = 2;
+	Form1->RecieversCount->Caption = "0";
+	Form1->NeedsCount->Caption = "0";
+
+
+
+	int sum = 0;
+
+	for(int i =0; i < recievers.size(); i++){
+		for(int j = 0; j < r->size(); j++){
+			if(recievers[i].id == r->at(j).id){
+			   recievers[i].needs = r->at(j).needs;
+               break;
+			}
+		}
+
+		sum+=recievers[i].needs;
+		initRecieversView(&recievers[i]);
+	}
+
+
+}
+
+void TForm1::updateProviders(std::vector<Provider> *p){
+
+}

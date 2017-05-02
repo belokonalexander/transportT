@@ -31,6 +31,13 @@
 #include <Vcl.Grids.hpp>
 
 
+#include <vector>
+
+
+#include "DBModels.h"
+
+
+
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
@@ -78,14 +85,18 @@ __published:	// IDE-managed Components
 	TLabel *Label7;
 	TLabel *ResultCost;
 	TButton *ExecuteButton;
+	TButton *Button2;
 
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall Button1Click(TObject *Sender);
 	void __fastcall ExecuteButtonClick(TObject *Sender);
+	void __fastcall Button2Click(TObject *Sender);
 
 private:	// User declarations
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);
+	void updateRecievers(std::vector<Reciever> *r);
+	void updateProviders(std::vector<Provider> *p);
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TForm1 *Form1;
