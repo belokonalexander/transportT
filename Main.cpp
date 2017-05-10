@@ -9,7 +9,7 @@
 #include<stdlib.h>
 #include <stdio.h>
 #include <time.h>
-
+#include <Math.h>
 #include "TabbedView.h"
 
 #include "Helper.h"
@@ -375,7 +375,7 @@ void __fastcall TForm1::ExecuteButtonClick(TObject *Sender)
 {
 
 
-
+    Memo1->Lines->Add(reportName);
 
 
 	TModuleForm->setData(reportName, &providers, &recievers, &tarifs, &results);

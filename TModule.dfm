@@ -104,7 +104,6 @@ object TModuleForm: TTModuleForm
       Caption = #1055#1086#1090#1088#1077#1073#1080#1090#1077#1083#1080
       TabOrder = 4
       OnClick = ReportRecieversButtonClick
-      ExplicitLeft = 817
     end
   end
   object Panel3: TPanel

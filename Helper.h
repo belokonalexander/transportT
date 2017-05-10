@@ -1,6 +1,6 @@
 #include <Math.h>
-
-
+#include <unordered_map>
+#include <vcl.h>
 
 float round (double value)
 {
@@ -24,4 +24,29 @@ int getP(double d)
         i++;
     }
 	return i;
+}
+
+int getHash(std::vector<String> data){
+
+	String str = "";
+
+	for(int i =0; i<data.size(); i++){
+		str+=data[i];
+	}
+
+	//std::size_t h1 = std::hash<String>(str);
+
+	//std::size_t h1 = {}("MyString");
+
+	int s = 7;
+	int n = str.Length();
+	double h = 31;
+	for(int i =0; i <= str.Length(); i++){
+		if(str.SubString0(i,1)=="")
+            continue;
+		s = StrToInt(str.SubString0(i,1)) + s * h;
+		}
+
+
+	return s;
 }

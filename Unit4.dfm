@@ -2,8 +2,8 @@ object Form4: TForm4
   Left = 0
   Top = 0
   Caption = 'Form4'
-  ClientHeight = 547
-  ClientWidth = 1155
+  ClientHeight = 761
+  ClientWidth = 1143
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,83 +17,74 @@ object Form4: TForm4
     Left = 0
     Top = 0
     Width = 185
-    Height = 547
+    Height = 761
     Align = alLeft
     Caption = 'Panel1'
     TabOrder = 0
-    ExplicitLeft = 8
-    ExplicitTop = 8
-    ExplicitHeight = 41
+    ExplicitHeight = 547
     object ListBox1: TListBox
       Left = 1
       Top = 1
       Width = 183
-      Height = 545
+      Height = 759
       Align = alClient
       ItemHeight = 13
       TabOrder = 0
       OnClick = ListBox1Click
-      ExplicitHeight = 543
+      ExplicitHeight = 545
     end
   end
   object Panel2: TPanel
     Left = 185
     Top = 0
-    Width = 970
-    Height = 547
+    Width = 958
+    Height = 761
     Align = alClient
     TabOrder = 1
-    ExplicitLeft = 272
-    ExplicitTop = 280
-    ExplicitWidth = 185
-    ExplicitHeight = 41
+    ExplicitWidth = 970
+    ExplicitHeight = 547
     object Panel3: TPanel
       Left = 1
       Top = 1
-      Width = 968
+      Width = 956
       Height = 24
       Align = alTop
       TabOrder = 0
-      ExplicitWidth = 601
+      ExplicitWidth = 968
       object SelectedFactory: TLabel
         AlignWithMargins = True
         Left = 4
         Top = 4
-        Width = 960
+        Width = 948
         Height = 13
         Align = alTop
-        ExplicitLeft = 1
-        ExplicitTop = 1
         ExplicitWidth = 3
       end
     end
     object Panel4: TPanel
       Left = 1
       Top = 49
-      Width = 968
-      Height = 408
+      Width = 956
+      Height = 711
       Align = alClient
       TabOrder = 1
-      ExplicitLeft = 5
-      ExplicitTop = 48
-      ExplicitWidth = 185
-      ExplicitHeight = 41
+      ExplicitWidth = 968
+      ExplicitHeight = 408
       object Panel7: TPanel
         Left = 1
-        Top = 405
-        Width = 966
-        Height = 2
+        Top = 1
+        Width = 954
+        Height = 709
         Align = alClient
         Caption = 'Panel7'
         TabOrder = 0
-        ExplicitLeft = 218
-        ExplicitTop = 288
-        ExplicitWidth = 185
-        ExplicitHeight = 41
+        ExplicitTop = 405
+        ExplicitWidth = 966
+        ExplicitHeight = 2
         object CheckListBox1: TCheckListBox
           Left = 1
           Top = 1
-          Width = 964
+          Width = 952
           Height = 60
           OnClickCheck = CheckListBox1ClickCheck
           Align = alTop
@@ -102,39 +93,47 @@ object Form4: TForm4
           ItemHeight = 13
           TabOrder = 0
           StyleElements = []
-          ExplicitTop = 0
-          ExplicitWidth = 899
+          ExplicitWidth = 964
         end
         object ScrollBox1: TScrollBox
           Left = 1
           Top = 61
-          Width = 964
-          Height = 41
+          Width = 952
+          Height = 647
           Align = alClient
           TabOrder = 1
+          ExplicitWidth = 964
+          ExplicitHeight = 41
           object Chart1: TChart
             Left = 0
             Top = 0
-            Width = 943
-            Height = 300
-            Legend.Alignment = laBottom
-            Title.Text.Strings = (
-              'TChart')
-            BottomAxis.Labels = False
-            BottomAxis.LabelsFormat.Visible = False
+            Width = 948
+            Height = 643
+            AllowPanning = pmNone
+            Legend.Alignment = laTop
+            MarginLeft = 10
+            MarginRight = 10
+            BottomAxis.Increment = 2.000000000000000000
+            BottomAxis.LabelsAngle = 35
+            BottomAxis.LabelsFormat.Font.Height = -13
             BottomAxis.LabelsMultiLine = True
             BottomAxis.LabelsSeparation = 0
             BottomAxis.LabelStyle = talText
             BottomAxis.TickLength = 1
-            Align = alTop
+            Chart3DPercent = 7
+            Zoom.Allow = False
+            Align = alClient
             TabOrder = 0
-            ExplicitWidth = 960
+            ExplicitTop = 4
+            ExplicitWidth = 943
+            ExplicitHeight = 300
             DefaultCanvas = 'TGDIPlusCanvas'
             ColorPaletteIndex = 13
             object Series1: TBarSeries
-              Marks.AutoPosition = False
-              Marks.Callout.ArrowHead = ahSolid
-              SeriesColor = clYellow
+              Marks.Transparent = True
+              Marks.Visible = False
+              Marks.SoftClip = True
+              SeriesColor = 1824484
               XValues.Name = 'X'
               XValues.Order = loAscending
               YValues.Name = 'Bar'
@@ -142,7 +141,7 @@ object Form4: TForm4
             end
             object Series2: TBarSeries
               Marks.Visible = False
-              SeriesColor = clBlue
+              SeriesColor = 16735838
               XValues.Name = 'X'
               XValues.Order = loAscending
               YValues.Name = 'Bar'
@@ -154,36 +153,168 @@ object Form4: TForm4
       object Panel9: TPanel
         Left = 1
         Top = 1
-        Width = 966
-        Height = 404
-        Align = alTop
+        Width = 954
+        Height = 709
+        Align = alClient
         Caption = 'Panel9'
         TabOrder = 1
-        ExplicitLeft = 280
-        ExplicitTop = 240
-        ExplicitWidth = 185
-        ExplicitHeight = 41
+        ExplicitWidth = 966
+        ExplicitHeight = 404
+        object ScrollBox2: TScrollBox
+          Left = 1
+          Top = 1
+          Width = 952
+          Height = 707
+          Align = alClient
+          TabOrder = 0
+          ExplicitWidth = 964
+          ExplicitHeight = 402
+          object Chart2: TChart
+            Left = 0
+            Top = 0
+            Width = 489
+            Height = 703
+            Legend.Alignment = laBottom
+            Legend.CustomPosition = True
+            Legend.HorizJustify = ljYes
+            Legend.Left = 24
+            Legend.LeftPercent = 5
+            Legend.PositionUnits = muPercent
+            Legend.ResizeChart = False
+            Legend.Top = 562
+            Legend.TopPercent = 80
+            Legend.TopPos = 0
+            Title.Margins.Left = 0
+            Title.Margins.Top = 0
+            Title.Margins.Right = 0
+            Title.Margins.Bottom = 0
+            Title.Margins.Units = maPixels
+            Title.Text.Strings = (
+              #1044#1086' '#1086#1087#1090#1080#1084#1080#1079#1072#1094#1080#1080)
+            Title.VertMargin = -40
+            BottomAxis.Labels = False
+            BottomAxis.LabelsFormat.Visible = False
+            BottomAxis.LabelsMultiLine = True
+            BottomAxis.LabelsSeparation = 0
+            BottomAxis.LabelStyle = talText
+            BottomAxis.TickLength = 1
+            Align = alLeft
+            TabOrder = 0
+            ExplicitHeight = 398
+            DefaultCanvas = 'TGDIPlusCanvas'
+            ColorPaletteIndex = 13
+            object BarSeries2: TPieSeries
+              Marks.Visible = False
+              Marks.Callout.Length = 20
+              SeriesColor = clBlue
+              XValues.Order = loAscending
+              YValues.Name = 'Pie'
+              YValues.Order = loNone
+              CustomXRadius = 200
+              Frame.InnerBrush.BackColor = clRed
+              Frame.InnerBrush.Gradient.EndColor = clGray
+              Frame.InnerBrush.Gradient.MidColor = clWhite
+              Frame.InnerBrush.Gradient.StartColor = 4210752
+              Frame.InnerBrush.Gradient.Visible = True
+              Frame.MiddleBrush.BackColor = clYellow
+              Frame.MiddleBrush.Gradient.EndColor = 8553090
+              Frame.MiddleBrush.Gradient.MidColor = clWhite
+              Frame.MiddleBrush.Gradient.StartColor = clGray
+              Frame.MiddleBrush.Gradient.Visible = True
+              Frame.OuterBrush.BackColor = clGreen
+              Frame.OuterBrush.Gradient.EndColor = 4210752
+              Frame.OuterBrush.Gradient.MidColor = clWhite
+              Frame.OuterBrush.Gradient.StartColor = clSilver
+              Frame.OuterBrush.Gradient.Visible = True
+              Frame.Width = 4
+              Bevel.Bright = -255
+              OtherSlice.Legend.Visible = False
+            end
+          end
+          object Chart3: TChart
+            Left = 489
+            Top = 0
+            Width = 459
+            Height = 703
+            Legend.Alignment = laBottom
+            Legend.CustomPosition = True
+            Legend.HorizJustify = ljYes
+            Legend.Left = 23
+            Legend.LeftPercent = 5
+            Legend.PositionUnits = muPercent
+            Legend.ResizeChart = False
+            Legend.Top = 562
+            Legend.TopPercent = 80
+            Legend.TopPos = 0
+            Title.Text.Strings = (
+              #1055#1086#1089#1083#1077' '#1086#1087#1090#1080#1084#1080#1079#1072#1094#1080#1080)
+            Title.VertMargin = -40
+            BottomAxis.Labels = False
+            BottomAxis.LabelsFormat.Visible = False
+            BottomAxis.LabelsMultiLine = True
+            BottomAxis.LabelsSeparation = 0
+            BottomAxis.LabelStyle = talText
+            BottomAxis.TickLength = 1
+            View3DOptions.Elevation = 315
+            View3DOptions.Orthogonal = False
+            View3DOptions.Perspective = 0
+            View3DOptions.Rotation = 360
+            Align = alClient
+            TabOrder = 1
+            ExplicitLeft = 495
+            ExplicitTop = 2
+            ExplicitWidth = 471
+            ExplicitHeight = 609
+            DefaultCanvas = 'TGDIPlusCanvas'
+            ColorPaletteIndex = 13
+            object PieSeries1: TPieSeries
+              Marks.Visible = False
+              Marks.Callout.Length = 20
+              SeriesColor = clBlue
+              XValues.Order = loAscending
+              YValues.Name = 'Pie'
+              YValues.Order = loNone
+              CustomXRadius = 200
+              Frame.InnerBrush.BackColor = clRed
+              Frame.InnerBrush.Gradient.EndColor = clGray
+              Frame.InnerBrush.Gradient.MidColor = clWhite
+              Frame.InnerBrush.Gradient.StartColor = 4210752
+              Frame.InnerBrush.Gradient.Visible = True
+              Frame.MiddleBrush.BackColor = clYellow
+              Frame.MiddleBrush.Gradient.EndColor = 8553090
+              Frame.MiddleBrush.Gradient.MidColor = clWhite
+              Frame.MiddleBrush.Gradient.StartColor = clGray
+              Frame.MiddleBrush.Gradient.Visible = True
+              Frame.OuterBrush.BackColor = clGreen
+              Frame.OuterBrush.Gradient.EndColor = 4210752
+              Frame.OuterBrush.Gradient.MidColor = clWhite
+              Frame.OuterBrush.Gradient.StartColor = clSilver
+              Frame.OuterBrush.Gradient.Visible = True
+              Frame.Width = 4
+              OtherSlice.Legend.Visible = False
+            end
+          end
+        end
       end
     end
     object Panel5: TPanel
       Left = 1
       Top = 25
-      Width = 968
+      Width = 956
       Height = 24
       Align = alTop
       TabOrder = 2
-      ExplicitWidth = 601
+      ExplicitWidth = 968
       object Panel6: TPanel
         Left = 1
         Top = 1
         Width = 185
         Height = 22
         Align = alLeft
-        Caption = #1054#1073#1083#1072#1089#1090#1100
+        Caption = #1057#1090#1086#1083#1073#1095#1072#1090#1072#1103' '#1076#1080#1072#1075#1088#1072#1084#1084#1072
         TabOrder = 0
-        ExplicitLeft = 256
-        ExplicitTop = -17
-        ExplicitHeight = 41
+        ExplicitLeft = 4
+        ExplicitTop = 0
       end
       object Panel8: TPanel
         Left = 186
@@ -191,24 +322,10 @@ object Form4: TForm4
         Width = 185
         Height = 22
         Align = alLeft
-        Caption = 'Panel8'
+        Caption = #1050#1088#1091#1075#1086#1074#1072#1103' '#1076#1080#1072#1075#1088#1072#1084#1084#1072
         TabOrder = 1
-        ExplicitLeft = 185
         ExplicitTop = 0
-        ExplicitHeight = 545
       end
-    end
-    object Memo1: TMemo
-      Left = 1
-      Top = 457
-      Width = 968
-      Height = 89
-      Align = alBottom
-      Lines.Strings = (
-        'Memo1')
-      TabOrder = 3
-      ExplicitTop = 405
-      ExplicitWidth = 599
     end
   end
 end

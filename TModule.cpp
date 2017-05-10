@@ -7,6 +7,7 @@
 #include "Helper.h"
 #include "TReport.h"
 #include "Unit4.h"
+
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -60,19 +61,41 @@ void TTModuleForm::setData(const String rep, const std::vector<Provider> *p, con
 
 	int p_sum = 0;
 	int r_sum = 0;
+
+
+	/*
 	for(int i = 0; i < p->size(); i++){
-        p_sum+=p->at(i).reserve;
+		p_sum+=p->at(i).reserve;
 	}
 
 	for(int i = 0; i < r->size(); i++){
 		r_sum+=r->at(i).needs;
+	}*/
+
+	std::vector<String> stringData;
+
+	for(int i = 0; i < r->size(); i++){
+		if(r->at(i).factory_id>0) {
+		   stringData.push_back(IntToStr(r->at(i).factory_id)+IntToStr(r->at(i).needs));
+		}
+		//r_sum+=r->at(i).needs;
 	}
 
-	reportName = "p"+IntToStr(p_sum) + "_r" + IntToStr(r_sum) + "_" + rep  ;
+
+
+	String factoryrecieversReportHash = "";
+    factoryrecieversReportHash = getHash(stringData);
+	reportName = factoryrecieversReportHash + "_" + rep  ;
+
+
 
 	reportIsExists = checkReportInDB();
 
-    TModuleForm->MemoInfo->Clear();
+	TModuleForm->MemoInfo->Clear();
+
+
+
+
 	TModuleForm->ProgressBar1->Position = 0;
 	TModuleForm->ReportButton->Enabled = false;
 	TModuleForm->ReportRecieversButton->Enabled = false;

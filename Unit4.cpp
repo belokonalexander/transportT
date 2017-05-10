@@ -31,7 +31,7 @@ void TForm4::setData(String r){
 	  Form4->Caption = "Отчет: " + reportName;
       Form4->Panel2->Visible = false;
 
-
+	  factoryRecievers.clear();
 	  //Form4->ListBox1->Items =  strings1;
 
 	TFDQuery *query;
@@ -57,6 +57,7 @@ void TForm4::setData(String r){
 
 	query->Close();
 	query->Disconnect();
+
 
 		 strings1 = new TStringList;
 
@@ -98,8 +99,9 @@ std::vector<ReportSummary> factorySummary;
 
 	regions_values.clear();
 	regions_was_values.clear();
+
     regions->Clear();
-    factorySummary.clear();
+	factorySummary.clear();
 
 
 	//получаю регионы
@@ -180,14 +182,33 @@ void fillGrapgh(){
 
 	Form4->Series1->Clear();
 	Form4->Series2->Clear();
+	Form4->BarSeries2->Clear();
+	Form4->PieSeries1->Clear();
 
-	Form4->Series1->Title="Новый план";
-	Form4->Series2->Title="Старый план";
+	Form4->Series1->Title="После оптимизации";
+	Form4->Series2->Title="До оптимизации";
+
+	Form4->BarSeries2->Title = "До оптимизации";
+
+
+
+
 
 	for(int i=0; i < Form4->CheckListBox1->Count;i++){
 		if(Form4->CheckListBox1->Checked[i]){
+
+
+
 			Form4->Series1->AddBar(regions_values[i],regions->Strings[i], clYellow);
 			Form4->Series2->AddBar(regions_was_values[i],regions->Strings[i],clBlue);
+			//Form4->Series1->Add
+
+			if(regions_was_values[i]>0)
+				Form4->BarSeries2->AddPie(regions_was_values[i],regions->Strings[i]);
+
+			if(regions_values[i]>0)
+				Form4->PieSeries1->AddPie(regions_values[i],regions->Strings[i]);
+
 		}
 
 
@@ -201,3 +222,5 @@ void __fastcall TForm4::CheckListBox1ClickCheck(TObject *Sender)
     fillGrapgh();
 }
 //---------------------------------------------------------------------------
+
+

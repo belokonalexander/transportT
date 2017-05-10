@@ -27,7 +27,6 @@ __published:	// IDE-managed Components
 	TListBox *ListBox1;
 	TPanel *Panel2;
 	TLabel *SelectedFactory;
-	TMemo *Memo1;
 	TPanel *Panel3;
 	TPanel *Panel4;
 	TPanel *Panel5;
@@ -40,6 +39,11 @@ __published:	// IDE-managed Components
 	TChart *Chart1;
 	TBarSeries *Series1;
 	TBarSeries *Series2;
+	TChart *Chart2;
+	TPieSeries *BarSeries2;
+	TScrollBox *ScrollBox2;
+	TChart *Chart3;
+	TPieSeries *PieSeries1;
 
 	void __fastcall ListBox1Click(TObject *Sender);
 	void __fastcall CheckListBox1ClickCheck(TObject *Sender);
