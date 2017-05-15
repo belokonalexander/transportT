@@ -1,9 +1,9 @@
 object Form1: TForm1
-  Left = 0
-  Top = 0
-  Caption = 'Form1'
-  ClientHeight = 585
-  ClientWidth = 1141
+  Left = 411
+  Top = 154
+  Caption = 'TransportT'
+  ClientHeight = 667
+  ClientWidth = 1324
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,48 +11,51 @@ object Form1: TForm1
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poDesigned
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1141
-    Height = 585
+    Width = 1324
+    Height = 667
     Align = alClient
     TabOrder = 0
+    ExplicitWidth = 1141
+    ExplicitHeight = 585
     object Panel2: TPanel
       Left = 1
       Top = 42
-      Width = 344
-      Height = 542
+      Width = 226
+      Height = 624
       Align = alLeft
       TabOrder = 0
       object Label1: TLabel
-        Left = 16
+        Left = 21
         Top = 6
         Width = 87
         Height = 13
         Caption = #1053#1072#1095#1072#1083#1100#1085#1072#1103' '#1076#1072#1090#1072':'
       end
       object Label2: TLabel
-        Left = 16
+        Left = 21
         Top = 52
         Width = 81
         Height = 13
         Caption = #1050#1086#1085#1077#1095#1085#1072#1103' '#1076#1072#1090#1072':'
       end
       object Button1: TButton
-        Left = 88
-        Top = 144
-        Width = 115
-        Height = 25
-        Caption = #1047#1072#1087#1088#1086#1089#1080#1090#1100' '#1076#1072#1085#1085#1099#1077
+        Left = 32
+        Top = 112
+        Width = 153
+        Height = 34
+        Caption = #1047#1072#1087#1088#1086#1089' '#1076#1072#1085#1085#1099#1093
         TabOrder = 0
         OnClick = Button1Click
       end
       object Edit1: TEdit
-        Left = 16
+        Left = 32
         Top = 25
         Width = 33
         Height = 21
@@ -61,7 +64,7 @@ object Form1: TForm1
         TabOrder = 1
       end
       object Edit2: TEdit
-        Left = 64
+        Left = 80
         Top = 25
         Width = 33
         Height = 21
@@ -70,9 +73,9 @@ object Form1: TForm1
         TabOrder = 2
       end
       object Edit3: TEdit
-        Left = 109
+        Left = 125
         Top = 25
-        Width = 36
+        Width = 60
         Height = 21
         Hint = 'yyyy'
         Alignment = taCenter
@@ -80,7 +83,7 @@ object Form1: TForm1
         Text = '2013'
       end
       object Edit4: TEdit
-        Left = 16
+        Left = 32
         Top = 71
         Width = 33
         Height = 21
@@ -89,7 +92,7 @@ object Form1: TForm1
         TabOrder = 4
       end
       object Edit5: TEdit
-        Left = 64
+        Left = 80
         Top = 71
         Width = 33
         Height = 21
@@ -98,9 +101,9 @@ object Form1: TForm1
         TabOrder = 5
       end
       object Edit6: TEdit
-        Left = 111
+        Left = 125
         Top = 71
-        Width = 36
+        Width = 60
         Height = 21
         Hint = 'yyyy'
         Alignment = taCenter
@@ -109,19 +112,22 @@ object Form1: TForm1
       end
       object Memo1: TMemo
         Left = 1
-        Top = 436
-        Width = 342
+        Top = 518
+        Width = 224
         Height = 105
         Align = alBottom
         Lines.Strings = (
           'Memo1')
         TabOrder = 7
+        Visible = False
+        ExplicitTop = 436
+        ExplicitWidth = 342
       end
       object ExecuteButton: TButton
-        Left = 88
-        Top = 184
-        Width = 115
-        Height = 25
+        Left = 32
+        Top = 152
+        Width = 153
+        Height = 34
         Caption = #1054#1087#1090#1080#1084#1080#1079#1080#1088#1086#1074#1072#1090#1100
         Enabled = False
         TabOrder = 8
@@ -129,40 +135,46 @@ object Form1: TForm1
       end
     end
     object Panel3: TPanel
-      Left = 345
+      Left = 227
       Top = 42
-      Width = 795
-      Height = 542
+      Width = 1096
+      Height = 624
       Align = alClient
       TabOrder = 1
+      ExplicitLeft = 345
+      ExplicitWidth = 783
       object Edit8: TEdit
         Left = 1
         Top = 1
-        Width = 793
+        Width = 1094
         Height = 21
         Align = alTop
         TabOrder = 0
+        ExplicitWidth = 793
       end
       object Panel5: TPanel
         Left = 1
         Top = 22
-        Width = 793
+        Width = 1094
         Height = 27
         Align = alTop
         TabOrder = 1
+        ExplicitWidth = 793
         object Panel6: TPanel
-          Left = 529
+          Left = 820
           Top = 1
-          Width = 263
+          Width = 273
           Height = 25
           Align = alClient
           Caption = #1056#1077#1079#1091#1083#1100#1090#1072#1090
           TabOrder = 0
+          ExplicitLeft = 811
+          ExplicitWidth = 2278
         end
         object Panel7: TPanel
           Left = 1
           Top = 1
-          Width = 176
+          Width = 273
           Height = 25
           Align = alLeft
           Caption = #1055#1086#1089#1090#1072#1074#1097#1080#1082#1080
@@ -177,162 +189,188 @@ object Form1: TForm1
           TabOrder = 1
         end
         object Panel8: TPanel
-          Left = 177
+          Left = 274
           Top = 1
-          Width = 176
+          Width = 273
           Height = 25
           Align = alLeft
           Caption = #1055#1086#1090#1088#1077#1073#1080#1090#1077#1083#1080
           TabOrder = 2
+          ExplicitLeft = 271
         end
         object Panel9: TPanel
-          Left = 353
+          Left = 547
           Top = 1
-          Width = 176
+          Width = 273
           Height = 25
           Align = alLeft
           Caption = #1052#1072#1090#1088#1080#1094#1072' '#1090#1072#1088#1080#1092#1086#1074
           TabOrder = 3
+          ExplicitLeft = 541
         end
       end
       object Panel10: TPanel
         Left = 1
         Top = 49
-        Width = 793
-        Height = 492
+        Width = 1094
+        Height = 574
         Align = alClient
         Caption = 'Panel10'
         TabOrder = 2
+        ExplicitWidth = 793
+        ExplicitHeight = 492
         object ProvidersGrid: TStringGrid
           Left = 1
           Top = 1
-          Width = 791
-          Height = 431
+          Width = 1092
+          Height = 531
           Align = alClient
-          ColCount = 4
+          ColCount = 6
           Ctl3D = True
-          DefaultColWidth = 128
+          DefaultColWidth = 180
           FixedCols = 0
           RowCount = 2
           ParentCtl3D = False
+          ScrollBars = ssHorizontal
           TabOrder = 0
-          ColWidths = (
-            128
-            128
-            128
-            128)
           RowHeights = (
             24
             24)
         end
         object Panel14: TPanel
           Left = 1
-          Top = 432
-          Width = 791
-          Height = 59
+          Top = 532
+          Width = 1092
+          Height = 41
           Align = alBottom
           TabOrder = 1
+          ExplicitTop = 514
+          ExplicitWidth = 791
           object Label3: TLabel
             Left = 16
-            Top = 14
+            Top = 5
             Width = 110
             Height = 13
             Caption = #1050#1086#1083'-'#1074#1086' '#1087#1086#1089#1090#1072#1074#1097#1080#1082#1086#1074':'
           end
           object Label4: TLabel
             Left = 85
-            Top = 33
+            Top = 22
             Width = 41
             Height = 13
             Caption = #1047#1072#1087#1072#1089#1099':'
           end
           object ProvidersCount: TLabel
             Left = 132
-            Top = 14
-            Width = 6
+            Top = 5
+            Width = 7
             Height = 13
             Caption = '0'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
           end
           object ReserveCount: TLabel
             Left = 132
-            Top = 33
-            Width = 6
+            Top = 22
+            Width = 7
             Height = 13
             Caption = '0'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
           end
         end
       end
       object Panel11: TPanel
         Left = 1
         Top = 49
-        Width = 793
-        Height = 492
+        Width = 1094
+        Height = 574
         Align = alClient
         Caption = 'Panel11'
         TabOrder = 3
+        ExplicitWidth = 793
+        ExplicitHeight = 492
         object Panel15: TPanel
           Left = 1
-          Top = 432
-          Width = 791
-          Height = 59
+          Top = 532
+          Width = 1092
+          Height = 41
           Align = alBottom
           TabOrder = 0
+          ExplicitWidth = 791
           object Label5: TLabel
             Left = 16
-            Top = 14
+            Top = 5
             Width = 114
             Height = 13
             Caption = #1050#1086#1083'-'#1074#1086' '#1087#1086#1090#1088#1077#1073#1080#1090#1077#1083#1077#1081':'
           end
           object Label6: TLabel
             Left = 60
-            Top = 33
+            Top = 22
             Width = 70
             Height = 13
             Caption = #1055#1086#1090#1088#1077#1073#1085#1086#1089#1090#1080':'
           end
           object RecieversCount: TLabel
             Left = 132
-            Top = 14
-            Width = 6
+            Top = 5
+            Width = 7
             Height = 13
             Caption = '0'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
           end
           object NeedsCount: TLabel
             Left = 132
-            Top = 33
-            Width = 6
+            Top = 22
+            Width = 7
             Height = 13
             Caption = '0'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
           end
           object Button2: TButton
             AlignWithMargins = True
-            Left = 640
+            Left = 941
             Top = 4
             Width = 147
-            Height = 51
+            Height = 33
             Align = alRight
             Caption = #1056#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1090#1100
             TabOrder = 0
             OnClick = Button2Click
+            ExplicitLeft = 640
           end
         end
         object RecieversGrid: TStringGrid
           Left = 1
           Top = 1
-          Width = 791
-          Height = 431
+          Width = 1092
+          Height = 531
           Align = alClient
-          ColCount = 4
-          DefaultColWidth = 128
+          ColCount = 6
+          DefaultColWidth = 180
           FixedCols = 0
           RowCount = 2
+          ScrollBars = ssHorizontal
           TabOrder = 1
-          ColWidths = (
-            128
-            128
-            128
-            128)
           RowHeights = (
             24
             24)
@@ -341,28 +379,26 @@ object Form1: TForm1
       object Panel12: TPanel
         Left = 1
         Top = 49
-        Width = 793
-        Height = 492
+        Width = 1094
+        Height = 574
         Align = alClient
         Caption = 'Panel12'
         TabOrder = 4
+        ExplicitWidth = 793
+        ExplicitHeight = 492
         object TarifsGrid: TStringGrid
           Left = 1
           Top = 1
-          Width = 791
-          Height = 490
+          Width = 1092
+          Height = 572
           Align = alClient
-          ColCount = 4
-          DefaultColWidth = 128
+          ColCount = 6
+          DefaultColWidth = 180
           FixedCols = 0
           RowCount = 2
           ParentColor = True
+          ScrollBars = ssHorizontal
           TabOrder = 0
-          ColWidths = (
-            128
-            128
-            128
-            128)
           RowHeights = (
             24
             24)
@@ -371,41 +407,42 @@ object Form1: TForm1
       object Panel13: TPanel
         Left = 1
         Top = 49
-        Width = 793
-        Height = 492
+        Width = 1094
+        Height = 574
         Align = alClient
         Caption = 'Panel13'
         TabOrder = 5
+        ExplicitWidth = 793
+        ExplicitHeight = 492
         object ResultsGrid: TStringGrid
           Left = 1
           Top = 1
-          Width = 791
-          Height = 449
+          Width = 1092
+          Height = 531
           Align = alClient
           ColCount = 6
-          DefaultColWidth = 128
+          DefaultColWidth = 180
           FixedCols = 0
           RowCount = 2
           ParentColor = True
+          ScrollBars = ssVertical
           TabOrder = 0
-          ColWidths = (
-            128
-            128
-            128
-            128
-            128
-            128)
+          ExplicitLeft = 4
+          ExplicitTop = 0
+          ExplicitWidth = 1012
           RowHeights = (
             24
             24)
         end
         object Panel16: TPanel
           Left = 1
-          Top = 450
-          Width = 791
+          Top = 532
+          Width = 1092
           Height = 41
           Align = alBottom
           TabOrder = 1
+          ExplicitTop = 450
+          ExplicitWidth = 791
           object Label7: TLabel
             Left = 16
             Top = 15
@@ -416,9 +453,15 @@ object Form1: TForm1
           object ResultCost: TLabel
             Left = 70
             Top = 15
-            Width = 6
+            Width = 7
             Height = 13
             Caption = '0'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
           end
         end
       end
@@ -426,10 +469,11 @@ object Form1: TForm1
     object Panel4: TPanel
       Left = 1
       Top = 1
-      Width = 1139
+      Width = 1322
       Height = 41
       Align = alTop
       TabOrder = 2
+      ExplicitWidth = 1139
     end
   end
   object TransportdbConnection: TFDConnection

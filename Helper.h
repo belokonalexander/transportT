@@ -34,10 +34,6 @@ int getHash(std::vector<String> data){
 		str+=data[i];
 	}
 
-	//std::size_t h1 = std::hash<String>(str);
-
-	//std::size_t h1 = {}("MyString");
-
 	int s = 7;
 	int n = str.Length();
 	double h = 31;

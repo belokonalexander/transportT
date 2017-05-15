@@ -1,6 +1,6 @@
 object Form4: TForm4
-  Left = 0
-  Top = 0
+  Left = 480
+  Top = 77
   Caption = 'Form4'
   ClientHeight = 761
   ClientWidth = 1143
@@ -11,6 +11,7 @@ object Form4: TForm4
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poDesigned
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
@@ -21,7 +22,6 @@ object Form4: TForm4
     Align = alLeft
     Caption = 'Panel1'
     TabOrder = 0
-    ExplicitHeight = 547
     object ListBox1: TListBox
       Left = 1
       Top = 1
@@ -31,7 +31,6 @@ object Form4: TForm4
       ItemHeight = 13
       TabOrder = 0
       OnClick = ListBox1Click
-      ExplicitHeight = 545
     end
   end
   object Panel2: TPanel
@@ -41,8 +40,6 @@ object Form4: TForm4
     Height = 761
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 970
-    ExplicitHeight = 547
     object Panel3: TPanel
       Left = 1
       Top = 1
@@ -50,7 +47,6 @@ object Form4: TForm4
       Height = 24
       Align = alTop
       TabOrder = 0
-      ExplicitWidth = 968
       object SelectedFactory: TLabel
         AlignWithMargins = True
         Left = 4
@@ -68,8 +64,6 @@ object Form4: TForm4
       Height = 711
       Align = alClient
       TabOrder = 1
-      ExplicitWidth = 968
-      ExplicitHeight = 408
       object Panel7: TPanel
         Left = 1
         Top = 1
@@ -78,9 +72,6 @@ object Form4: TForm4
         Align = alClient
         Caption = 'Panel7'
         TabOrder = 0
-        ExplicitTop = 405
-        ExplicitWidth = 966
-        ExplicitHeight = 2
         object CheckListBox1: TCheckListBox
           Left = 1
           Top = 1
@@ -93,7 +84,6 @@ object Form4: TForm4
           ItemHeight = 13
           TabOrder = 0
           StyleElements = []
-          ExplicitWidth = 964
         end
         object ScrollBox1: TScrollBox
           Left = 1
@@ -102,8 +92,6 @@ object Form4: TForm4
           Height = 647
           Align = alClient
           TabOrder = 1
-          ExplicitWidth = 964
-          ExplicitHeight = 41
           object Chart1: TChart
             Left = 0
             Top = 0
@@ -113,6 +101,9 @@ object Form4: TForm4
             Legend.Alignment = laTop
             MarginLeft = 10
             MarginRight = 10
+            Title.Font.Height = -19
+            Title.Text.Strings = (
+              #1057#1088#1072#1074#1085#1080#1090#1077#1083#1100#1085#1072#1103' '#1072#1085#1072#1083#1080#1090#1080#1082#1072)
             BottomAxis.Increment = 2.000000000000000000
             BottomAxis.LabelsAngle = 35
             BottomAxis.LabelsFormat.Font.Height = -13
@@ -124,9 +115,6 @@ object Form4: TForm4
             Zoom.Allow = False
             Align = alClient
             TabOrder = 0
-            ExplicitTop = 4
-            ExplicitWidth = 943
-            ExplicitHeight = 300
             DefaultCanvas = 'TGDIPlusCanvas'
             ColorPaletteIndex = 13
             object Series1: TBarSeries
@@ -158,8 +146,6 @@ object Form4: TForm4
         Align = alClient
         Caption = 'Panel9'
         TabOrder = 1
-        ExplicitWidth = 966
-        ExplicitHeight = 404
         object ScrollBox2: TScrollBox
           Left = 1
           Top = 1
@@ -167,8 +153,6 @@ object Form4: TForm4
           Height = 707
           Align = alClient
           TabOrder = 0
-          ExplicitWidth = 964
-          ExplicitHeight = 402
           object Chart2: TChart
             Left = 0
             Top = 0
@@ -184,13 +168,14 @@ object Form4: TForm4
             Legend.Top = 562
             Legend.TopPercent = 80
             Legend.TopPos = 0
+            Title.Font.Height = -19
             Title.Margins.Left = 0
             Title.Margins.Top = 0
             Title.Margins.Right = 0
             Title.Margins.Bottom = 0
             Title.Margins.Units = maPixels
             Title.Text.Strings = (
-              #1044#1086' '#1086#1087#1090#1080#1084#1080#1079#1072#1094#1080#1080)
+              #1048#1089#1093#1086#1076#1085#1099#1077' '#1076#1072#1085#1085#1099#1077)
             Title.VertMargin = -40
             BottomAxis.Labels = False
             BottomAxis.LabelsFormat.Visible = False
@@ -198,9 +183,12 @@ object Form4: TForm4
             BottomAxis.LabelsSeparation = 0
             BottomAxis.LabelStyle = talText
             BottomAxis.TickLength = 1
+            View3DOptions.Elevation = 315
+            View3DOptions.Orthogonal = False
+            View3DOptions.Perspective = 0
+            View3DOptions.Rotation = 360
             Align = alLeft
             TabOrder = 0
-            ExplicitHeight = 398
             DefaultCanvas = 'TGDIPlusCanvas'
             ColorPaletteIndex = 13
             object BarSeries2: TPieSeries
@@ -246,8 +234,9 @@ object Form4: TForm4
             Legend.Top = 562
             Legend.TopPercent = 80
             Legend.TopPos = 0
+            Title.Font.Height = -19
             Title.Text.Strings = (
-              #1055#1086#1089#1083#1077' '#1086#1087#1090#1080#1084#1080#1079#1072#1094#1080#1080)
+              #1054#1087#1090#1080#1084#1080#1079#1072#1094#1080#1103)
             Title.VertMargin = -40
             BottomAxis.Labels = False
             BottomAxis.LabelsFormat.Visible = False
@@ -261,10 +250,6 @@ object Form4: TForm4
             View3DOptions.Rotation = 360
             Align = alClient
             TabOrder = 1
-            ExplicitLeft = 495
-            ExplicitTop = 2
-            ExplicitWidth = 471
-            ExplicitHeight = 609
             DefaultCanvas = 'TGDIPlusCanvas'
             ColorPaletteIndex = 13
             object PieSeries1: TPieSeries
@@ -304,7 +289,6 @@ object Form4: TForm4
       Height = 24
       Align = alTop
       TabOrder = 2
-      ExplicitWidth = 968
       object Panel6: TPanel
         Left = 1
         Top = 1
@@ -313,8 +297,6 @@ object Form4: TForm4
         Align = alLeft
         Caption = #1057#1090#1086#1083#1073#1095#1072#1090#1072#1103' '#1076#1080#1072#1075#1088#1072#1084#1084#1072
         TabOrder = 0
-        ExplicitLeft = 4
-        ExplicitTop = 0
       end
       object Panel8: TPanel
         Left = 186
@@ -324,7 +306,6 @@ object Form4: TForm4
         Align = alLeft
         Caption = #1050#1088#1091#1075#1086#1074#1072#1103' '#1076#1080#1072#1075#1088#1072#1084#1084#1072
         TabOrder = 1
-        ExplicitTop = 0
       end
     end
   end

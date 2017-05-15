@@ -1,6 +1,6 @@
 object Form2: TForm2
-  Left = 0
-  Top = 0
+  Left = 549
+  Top = 154
   BorderStyle = bsSingle
   Caption = #1054#1090#1095#1077#1090
   ClientHeight = 574
@@ -12,6 +12,7 @@ object Form2: TForm2
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poDesigned
   OnActivate = FormActivate
   OnShow = FormShow
   PixelsPerInch = 96
@@ -54,6 +55,7 @@ object Form2: TForm2
       ColCount = 3
       DefaultColWidth = 100
       RowCount = 2
+      ScrollBars = ssHorizontal
       TabOrder = 0
       OnDrawCell = StringGrid1DrawCell
       ColWidths = (

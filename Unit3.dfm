@@ -1,6 +1,6 @@
 object Form3: TForm3
-  Left = 0
-  Top = 0
+  Left = 823
+  Top = 77
   BorderStyle = bsSingle
   Caption = 'Form3'
   ClientHeight = 485
@@ -12,6 +12,7 @@ object Form3: TForm3
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poDesigned
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
@@ -30,7 +31,6 @@ object Form3: TForm3
       Align = alClient
       TabOrder = 0
       OnSetEditText = ValueListEditor1SetEditText
-      ExplicitHeight = 215
       ColWidths = (
         228
         236)
@@ -55,7 +55,6 @@ object Form3: TForm3
         Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
         TabOrder = 0
         OnClick = Button1Click
-        ExplicitHeight = 260
       end
       object Button2: TButton
         AlignWithMargins = True
@@ -67,7 +66,6 @@ object Form3: TForm3
         Caption = #1054#1090#1084#1077#1085#1072
         TabOrder = 1
         OnClick = Button2Click
-        ExplicitHeight = 260
       end
     end
   end

@@ -7,10 +7,10 @@
 
 //---------------------------------------------------------------------------
 USEFORM("TModule.cpp", TModuleForm);
+USEFORM("Unit4.cpp", Form4);
 USEFORM("Unit3.cpp", Form3);
 USEFORM("TReport.cpp", Form2);
 USEFORM("Main.cpp", Form1);
-USEFORM("Unit4.cpp", Form4);
 //---------------------------------------------------------------------------
 WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {
