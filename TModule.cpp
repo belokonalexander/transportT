@@ -117,9 +117,6 @@ void __fastcall TTModuleForm::ButtonStartClick(TObject *Sender)
 
 	DWORD result = WaitForSingleObject( Thread, 0);
 
-	cout(result);
-
-
 	if (isThreadActive==false || result == WAIT_OBJECT_0) {
           if(!reportIsExists || MessageBox(Handle, "Отчет за указанный период уже существует. Рассчитать заново?","Отчет существует",  MB_YESNO|MB_ICONQUESTION)  == IDYES ) {
 
@@ -189,7 +186,7 @@ void startOptimization(void*dummy){
 	int search_time = end_time - start_time;
 
 	TModuleForm->MemoInfo->Lines->Add("Время выполнения: " + IntToStr(search_time));
-
+    TModuleForm->ProgressBar1->Position = TModuleForm->ProgressBar1->Max;
 	int sum = 0;
 
 	std::vector<Result> newResult;

@@ -65,24 +65,25 @@ void __fastcall TForm2::FormShow(TObject *Sender)
 {
 	TStringList * title = new TStringList;
 		title->Add("Свойство");
-		title->Add("До оптимизации");
-		title->Add("После оптимизации");
+		title->Add("Исходные данные");
+		title->Add("Данные после обработки");
 
 	StringGrid1->Rows[0] = title;
 	StringGrid1->ColWidths[0] = 342;
 	StringGrid1->ColWidths[1] = 342;
 	StringGrid1->ColWidths[2] = 342;
 
-	StringGrid1->Cells[0][1] = "Общие затраты";
-	StringGrid1->Cells[0][2] = "Ед.продукции";
-	StringGrid1->Cells[0][3] = "Самый активный маршрут";
-	StringGrid1->Cells[0][4] = "Самый дорогой маршрут";
+	StringGrid1->Cells[0][1] = "Общие затраты, рубли";
+	StringGrid1->Cells[0][2] = "Ед.продукции, тонны";
+	StringGrid1->Cells[0][3] = "Самый активный маршрут (тонны)";
+	StringGrid1->Cells[0][4] = "Самый дорогой маршрут (тонны)";
 
 
 
-	StringGrid1->Cells[0][5] = "Маршруты:";
+	StringGrid1->Cells[0][6] = "Маршруты / eд.продукции, тонны";
 
-	int offset = 6;
+
+	int offset = 7;
 
 	StringGrid1->RowCount = 6;
 
@@ -244,8 +245,8 @@ void __fastcall TForm2::FormShow(TObject *Sender)
 
 
 
-		StringGrid1->Cells[1][1] = sum1;
-		StringGrid1->Cells[2][1] = sum2;
+		StringGrid1->Cells[1][1] = roundA(sum1);
+		StringGrid1->Cells[2][1] = roundA(sum2);;
 
 		StringGrid1->Cells[1][2] = sum1_prod;
 		StringGrid1->Cells[2][2] = sum2_prod;

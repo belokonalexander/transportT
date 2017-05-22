@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 411
-  Top = 154
+  Left = 0
+  Top = 0
   Caption = 'TransportT'
   ClientHeight = 667
   ClientWidth = 1324
@@ -22,8 +22,6 @@ object Form1: TForm1
     Height = 667
     Align = alClient
     TabOrder = 0
-    ExplicitWidth = 1141
-    ExplicitHeight = 585
     object Panel2: TPanel
       Left = 1
       Top = 42
@@ -120,8 +118,6 @@ object Form1: TForm1
           'Memo1')
         TabOrder = 7
         Visible = False
-        ExplicitTop = 436
-        ExplicitWidth = 342
       end
       object ExecuteButton: TButton
         Left = 32
@@ -141,8 +137,6 @@ object Form1: TForm1
       Height = 624
       Align = alClient
       TabOrder = 1
-      ExplicitLeft = 345
-      ExplicitWidth = 783
       object Edit8: TEdit
         Left = 1
         Top = 1
@@ -150,7 +144,6 @@ object Form1: TForm1
         Height = 21
         Align = alTop
         TabOrder = 0
-        ExplicitWidth = 793
       end
       object Panel5: TPanel
         Left = 1
@@ -159,7 +152,6 @@ object Form1: TForm1
         Height = 27
         Align = alTop
         TabOrder = 1
-        ExplicitWidth = 793
         object Panel6: TPanel
           Left = 820
           Top = 1
@@ -168,8 +160,6 @@ object Form1: TForm1
           Align = alClient
           Caption = #1056#1077#1079#1091#1083#1100#1090#1072#1090
           TabOrder = 0
-          ExplicitLeft = 811
-          ExplicitWidth = 2278
         end
         object Panel7: TPanel
           Left = 1
@@ -196,7 +186,6 @@ object Form1: TForm1
           Align = alLeft
           Caption = #1055#1086#1090#1088#1077#1073#1080#1090#1077#1083#1080
           TabOrder = 2
-          ExplicitLeft = 271
         end
         object Panel9: TPanel
           Left = 547
@@ -206,7 +195,6 @@ object Form1: TForm1
           Align = alLeft
           Caption = #1052#1072#1090#1088#1080#1094#1072' '#1090#1072#1088#1080#1092#1086#1074
           TabOrder = 3
-          ExplicitLeft = 541
         end
       end
       object Panel10: TPanel
@@ -217,8 +205,6 @@ object Form1: TForm1
         Align = alClient
         Caption = 'Panel10'
         TabOrder = 2
-        ExplicitWidth = 793
-        ExplicitHeight = 492
         object ProvidersGrid: TStringGrid
           Left = 1
           Top = 1
@@ -233,6 +219,13 @@ object Form1: TForm1
           ParentCtl3D = False
           ScrollBars = ssHorizontal
           TabOrder = 0
+          ColWidths = (
+            180
+            180
+            180
+            180
+            180
+            180)
           RowHeights = (
             24
             24)
@@ -244,8 +237,6 @@ object Form1: TForm1
           Height = 41
           Align = alBottom
           TabOrder = 1
-          ExplicitTop = 514
-          ExplicitWidth = 791
           object Label3: TLabel
             Left = 16
             Top = 5
@@ -296,8 +287,6 @@ object Form1: TForm1
         Align = alClient
         Caption = 'Panel11'
         TabOrder = 3
-        ExplicitWidth = 793
-        ExplicitHeight = 492
         object Panel15: TPanel
           Left = 1
           Top = 532
@@ -305,7 +294,6 @@ object Form1: TForm1
           Height = 41
           Align = alBottom
           TabOrder = 0
-          ExplicitWidth = 791
           object Label5: TLabel
             Left = 16
             Top = 5
@@ -356,7 +344,6 @@ object Form1: TForm1
             Caption = #1056#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1090#1100
             TabOrder = 0
             OnClick = Button2Click
-            ExplicitLeft = 640
           end
         end
         object RecieversGrid: TStringGrid
@@ -371,6 +358,13 @@ object Form1: TForm1
           RowCount = 2
           ScrollBars = ssHorizontal
           TabOrder = 1
+          ColWidths = (
+            180
+            180
+            180
+            180
+            180
+            180)
           RowHeights = (
             24
             24)
@@ -384,8 +378,6 @@ object Form1: TForm1
         Align = alClient
         Caption = 'Panel12'
         TabOrder = 4
-        ExplicitWidth = 793
-        ExplicitHeight = 492
         object TarifsGrid: TStringGrid
           Left = 1
           Top = 1
@@ -399,6 +391,13 @@ object Form1: TForm1
           ParentColor = True
           ScrollBars = ssHorizontal
           TabOrder = 0
+          ColWidths = (
+            180
+            180
+            180
+            180
+            180
+            180)
           RowHeights = (
             24
             24)
@@ -412,8 +411,6 @@ object Form1: TForm1
         Align = alClient
         Caption = 'Panel13'
         TabOrder = 5
-        ExplicitWidth = 793
-        ExplicitHeight = 492
         object ResultsGrid: TStringGrid
           Left = 1
           Top = 1
@@ -427,9 +424,13 @@ object Form1: TForm1
           ParentColor = True
           ScrollBars = ssVertical
           TabOrder = 0
-          ExplicitLeft = 4
-          ExplicitTop = 0
-          ExplicitWidth = 1012
+          ColWidths = (
+            180
+            180
+            180
+            180
+            180
+            180)
           RowHeights = (
             24
             24)
@@ -441,8 +442,6 @@ object Form1: TForm1
           Height = 41
           Align = alBottom
           TabOrder = 1
-          ExplicitTop = 450
-          ExplicitWidth = 791
           object Label7: TLabel
             Left = 16
             Top = 15
@@ -473,7 +472,6 @@ object Form1: TForm1
       Height = 41
       Align = alTop
       TabOrder = 2
-      ExplicitWidth = 1139
     end
   end
   object TransportdbConnection: TFDConnection

@@ -90,7 +90,9 @@ bool checkBoxIsCreated = false;
 
 std::vector<ReportSummary> factorySummary;
 	std::vector<int> regions_values;
+	int sum_regions_1 = 0;
 	std::vector<int> regions_was_values;
+	 int sum_regions_2 = 0;
 		TStringList* regions = new TStringList;
 //---------------------------------------------------------------------------
  void fillData(int index){
@@ -103,7 +105,8 @@ std::vector<ReportSummary> factorySummary;
 
     regions->Clear();
 	factorySummary.clear();
-
+	sum_regions_1 = 0;
+    sum_regions_2 = 0;
 
 	//получаю регионы
     TFDQuery *query;
@@ -166,7 +169,8 @@ std::vector<ReportSummary> factorySummary;
 			regions_was_values[index]+=factorySummary[i].was_value;
 		 }
 
-
+		 sum_regions_1+= factorySummary[i].was_value;
+		 sum_regions_2+= factorySummary[i].value;
     }
 
 
@@ -186,10 +190,49 @@ void fillGrapgh(){
 	Form4->BarSeries2->Clear();
 	Form4->PieSeries1->Clear();
 
-	Form4->Series1->Title="После оптимизации";
-	Form4->Series2->Title="До оптимизации";
+	Form4->Series1->Title="Исходные данные";
+	Form4->Series2->Title="Данные после оптимизации";
 
-	Form4->BarSeries2->Title = "До оптимизации";
+	Form4->BarSeries2->Title = "Исходные данные";
+
+
+	 Form4->Chart1->Title->Text->Clear();
+
+	 String dt1 = reportName.SubString(reportName.Pos("_")+1,8);
+	 TDateTime date1 = StrToDate(dt1.SubString0(6,2)+"." + dt1.SubString0(4,2) + "." + dt1.SubString0(0,4));
+
+	 String dt2 = reportName.SubString(reportName.Pos("_")+9,8);
+	 TDateTime date2 = StrToDate(dt2.SubString0(6,2)+"." + dt2.SubString0(4,2) + "." + dt2.SubString0(0,4));
+
+	 if(date1==date2)
+		Form4->Chart1->Title->Text->Add("Отчет по предприятию " + Form4->SelectedFactory->Caption + " за " + DateToStr(date1));
+	 else
+		Form4->Chart1->Title->Text->Add("Отчет по предприятию " + Form4->SelectedFactory->Caption + " за период с " + DateToStr(date1) + " по " + DateToStr(date2));
+
+
+	Form4->Chart2->Title->Text->Clear();
+
+	 if(date1==date2){
+		Form4->Chart2->Title->Text->Add("Исходные данные по поставке товара для предприятия ");
+		Form4->Chart2->Title->Text->Add(Form4->SelectedFactory->Caption + " за " + DateToStr(date1));
+
+	 }
+	 else {
+		Form4->Chart2->Title->Text->Add("Исходные данные по поставке товара для предприятия ");
+		Form4->Chart2->Title->Text->Add(Form4->SelectedFactory->Caption + " за период с " + DateToStr(date1) + " по " + DateToStr(date2));
+	 }
+
+	Form4->Chart3->Title->Text->Clear();
+
+		 if(date1==date2){
+		Form4->Chart3->Title->Text->Add("Оптимизированные данные по поставке товара для предприятия ");
+		Form4->Chart3->Title->Text->Add(Form4->SelectedFactory->Caption + " за " + DateToStr(date1));
+
+	 }
+	 else {
+		Form4->Chart3->Title->Text->Add("Оптимизированные данные по поставке товара для предприятия ");
+		Form4->Chart3->Title->Text->Add(Form4->SelectedFactory->Caption + " за период с " + DateToStr(date1) + " по " + DateToStr(date2));
+	 }
 
 
 
@@ -203,6 +246,9 @@ void fillGrapgh(){
 			Form4->Series1->AddBar(regions_values[i],regions->Strings[i], clYellow);
 			Form4->Series2->AddBar(regions_was_values[i],regions->Strings[i],clBlue);
 			//Form4->Series1->Add
+
+
+		
 
 			if(regions_was_values[i]>0)
 				Form4->BarSeries2->AddPie(regions_was_values[i],regions->Strings[i]);
@@ -223,5 +269,7 @@ void __fastcall TForm4::CheckListBox1ClickCheck(TObject *Sender)
     fillGrapgh();
 }
 //---------------------------------------------------------------------------
+
+
 
 

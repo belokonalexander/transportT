@@ -128,14 +128,14 @@ public:
 
 
 	if (fabsl(hd / (ss + sc)) < delta / 10.0) goto _2;
-	if (hd < 0) goto _1;    //потребносей больще, чем запасов
+	if (hd < 0) goto _1;    //потребностей больще, чем запасов
 	if (hd == 0) goto _2;  //закрытая задача
 	if (hd > 0) goto _3;   // a>b -> запасы поставщика больше чем потребности
 
 
 
 
-_1: trace(1);
+_1: trace(1); // приводим к закрытой задаче
 	n1 = l1 + 1;
 	n2 = l2;
 	a[n1 - 1] = -hd;
@@ -143,12 +143,12 @@ _1: trace(1);
 		c[n1 - 1][l] = 0;
 	goto _4;
 
-_2: trace(2);
+_2: trace(2); // ничего не делаем, задача уже закрыта
 	n1 = l1;
 	n2 = l2;
 	goto _4;
 
-_3:	trace(3);
+_3:	trace(3);	// приводим к закрытой задаче
 	n1 = l1;
 	n2 = l2 + 1;
 	b[n2 - 1] = hd;
@@ -156,8 +156,8 @@ _3:	trace(3);
 		c[k][n2 - 1] = 0;
 
 _4:	trace(4);
-	niter = 2.e9;
-	miter = 10000;
+	niter = 2.e9;	//кол-во итераций внутреннего цикла
+	miter = 10000;	//кол-во итераций внешнего цикла
 
 	sa = 0;
 
@@ -168,20 +168,20 @@ _4:	trace(4);
 	for (l = 0; l < n2; l++)
 		sb += b[l] * b[l];
 
-	sa2 = sqrtl(sa + sb);
+	sa2 = sqrtl(sa + sb);	//норма - ||y||
 	s0 = 0;
 	sf = 0;
 
 	for (k = 0; k < n1; k++)
 		for (l = 0; l < n2; l++) {
-			yt[k][l] = a[k] + b[l];
-			s0 += yt[k][l] * yt[k][l];
-			sf += c[k][l] * c[k][l];
+			yt[k][l] = a[k] + b[l];		//сумма соответствующих исходных векторов поставщик-потребитель (запас поставщика-k = 10, потребность потреб-l = 5) -> 15
+			s0 += yt[k][l] * yt[k][l];	//квадрат суммы
+			sf += c[k][l] * c[k][l];	//квадрат тарифов
 		}
 
-	s0 = sqrtl(s0);
-	sf = sqrtl(sf);
-	ndp = powl(n1 + n2 + one*n1*n2, one / 8);
+	s0 = sqrtl(s0); 	//норма ||y0||
+	sf = sqrtl(sf);		//норма ||c||
+	ndp = powl(n1 + n2 + one*n1*n2, one / 8);	//параметр ню
 	dp = ndp;
 	jp = 0;
 	pmax = sqrtl(one*(n1 + n2)*n1*n2);
@@ -191,28 +191,30 @@ _4:	trace(4);
 
 	//MAIN CYCLE
 	for (npr = 1; npr <= miter; npr++) {
-		eps = eps / powl(10.0 * one, one / dp);
-		cpen = cpen * powl(10.0 * one, one / dp);
+		eps = eps / powl(10.0 * one, one / dp);		//параметр d (2.5)
+		cpen = cpen * powl(10.0 * one, one / dp);	//параметр e (2.6)
 		if (eps < 3.e-19) dp = 20;
-		ndp = dp;
+		//ndp = dp;
 		dcp = 2 * cpen;
 		s00 = 0;
 
 		for (k = 0; k < n1; k++)
 			for (l = 0; l < n2; l++) {
-				y[k][l] = yt[k][l] - c[k][l] / dcp;
-				s00 += y[k][l] * y[k][l];
+				y[k][l] = yt[k][l] - c[k][l] / dcp;	// уменьшаем сумму на тариф/коэфициент
+				s00 += y[k][l] * y[k][l];			// квадрат новой суммы
 			}
 
-		s00 = sqrtl(s00);
+		s00 = sqrtl(s00);	//новое значение ||y||
 		k0 = niter - 1;
 		if (jp < np1 && npr >1) goto _5;
-		cout("ITERATION: " + npr);
+
 
 		if (jp == np1) jp = 0;
 	_5: trace(5);
 		if (npr > 1) goto _6;
 
+
+		//первый проход, x0 = 0, как и предыдущий проход xpr
 		for (k = 0; k < n1; k++)
 			for (l = 0; l < n2; l++) {
 				x[k][l] = 0;
@@ -230,10 +232,13 @@ _4:	trace(4);
 		s1as = 0;
 
 
-		// INNER
+		// - - -- - -- - В Н У Т Р Е Н Н И Й    Ц И К Л - - -- - -- -
+
 		for (n = 1; n <= niter; n++) {
 
 			if (n > 1) goto _7;
+
+			//первая итерация внутреннего цикла - p[k][l] - тот же x[k][l] без отрицательных элементов и pmax вместо положительных
 			for (k = 0; k < n1; k++)
 				for (l = 0; l < n2; l++)
 					p[k][l] = (x[k][l] <= 0) ? pmax : 0;
@@ -244,25 +249,25 @@ _4:	trace(4);
 				s11 = 0;
 				for (l = 0; l < n2; l++)
 					s11 += x[k][l];
-				sw1[k] = s11;
+				sw1[k] = s11; 		// sw1[0] - сумма груза, отправленная (всем) 1м поставщиком
 			}
 
 			for (l = 0; l < n2; l++) {
 				s11 = 0;
 				for (k = 0; k < n1; k++)
 					s11 += x[k][l];
-				sw2[l] = s11;
+				sw2[l] = s11; 		// sw1[0] - сумма груза, полученная (всеми) 1м потребителем
 			}
 
 			s1 = 0;
 			for (k = 0; k < n1; k++)
 				for (l = 0; l < n2; l++) {
-					r[k][l] = sw1[k] + sw2[l] + p[k][l] * x[k][l] - y[k][l];
+					r[k][l] = sw1[k] + sw2[l] + p[k][l] * x[k][l] - y[k][l];	//вектор невязки
 					s1 += r[k][l] * r[k][l];
 				}
 
-			s1n = sqrtl(s1);
-			s3 = s1n / s00;
+			s1n = sqrtl(s1);	// ||r||
+			s3 = s1n / s00;		// вычисляем ||rn||/||y||
 
 			//--->
 			s2as = fabs(as[2] - as[0]);
@@ -281,7 +286,7 @@ _4:	trace(4);
 			if (k1 == np) goto _17;
 
 		_9: trace(9);
-			if (s3 - eps < 0) goto _19;
+			if (s3 - eps < 0) goto _19;	//проверяется условие (3.1) ||rn||/||y|| < eps
 			j2 = 0;
 			i = 0;
 			j = 0;
@@ -307,11 +312,14 @@ _4:	trace(4);
 
 			for (k = 0; k < n1; k++) {
 				for (l = 0; l < n2; l++) {
-					v[k][l] = sw1[k] + sw2[l] + p[k][l] * r[k][l];
+					v[k][l] = sw1[k] + sw2[l] + p[k][l] * r[k][l]; //расчет D0r0
 				}
 			}
 
 			if (n == 1) goto _10;
+
+			//если не первая итерация внутреннего цикла
+
 			for (k = 0; k < n1; k++) {
 				s11 = 0;
 				for (l = 0; l < n2; l++) {
@@ -330,44 +338,47 @@ _4:	trace(4);
 
 			for (k = 0; k < n1; k++) {
 				for (l = 0; l < n2; l++) {
-					w[k][l] = sw1[k] + sw2[l] + p[k][l] * z[k][l];
+					w[k][l] = sw1[k] + sw2[l] + p[k][l] * z[k][l];	//расчет Dnzn
 				}
 			}
 
 			goto _13;
 
 		_10: trace(10);
-			//--->
+
+			//если первая итерация внутреннего цикла
+
 			if (npr > 1) goto _11;
-			//--->
-			c2 = s1;
+
+			//расчет [(r0,r0) и (D0r0,r0)] для первой итерации
+			c2 = s1;						//r0r0r
 			c3 = 0;
 			for (k = 0; k < n1; k++) {
 				for (l = 0; l < n2; l++) {
-					c3 += v[k][l] * r[k][l];
+					c3 += v[k][l] * r[k][l]; //(D0r0,r0)
 				}
 			}
 			goto _12;
 
 		_11: trace(11);
-			//--->
+			//расчет [(D0r0,D0r0) и (D0r0,r0)] для последующих итераций
 			c2 = 0;
 			c3 = 0;
 			for (k = 0; k < n1; k++) {
 				for (l = 0; l < n2; l++) {
-					c2 += v[k][l] * r[k][l];
-					c3 += v[k][l] * v[k][l];
+					c2 += v[k][l] * r[k][l]; //(D0r0,r0)
+					c3 += v[k][l] * v[k][l]; //(D0r0,D0r0)
 				}
 			}
 			//--->
 
 		_12: trace(12);
-
+			//расчет x1 по x0
 			c6 = c2 / c3;
 			for (k = 0; k < n1; k++) {
 				for (l = 0; l < n2; l++) {
-					xpr[k][l] = x[k][l];
-					x[k][l] -= c6 * r[k][l];
+					xpr[k][l] = x[k][l];	//сохраняем предыдущий результат
+					x[k][l] -= c6 * r[k][l];	//формируем новый план перевозок x1, x0 здесь нулевой вектор
 				}
 			}
 
@@ -377,25 +388,25 @@ _4:	trace(4);
 			//--->
 			if (npr > 1) goto _14;
 			//--->
-
+			//первая итерация - СМГС
 			c1 = 0;
-			c2 = s1;
+			c2 = s1;				// rnrn
 			c3 = 0;
 			c4 = 0;
 			c5 = 0;
 			for (k = 0; k < n1; k++) {
 				for (l = 0; l < n2; l++) {
-					c1 += w[k][l] * r[k][l];
-					c3 += v[k][l] * r[k][l];
-					c4 += r[k][l] * z[k][l];
-					c5 += w[k][l] * z[k][l];
+					c1 += w[k][l] * r[k][l];	//dnzn,rn
+					c3 += v[k][l] * r[k][l];	//dnrn,rn
+					c4 += r[k][l] * z[k][l];	//zn,rn
+					c5 += w[k][l] * z[k][l];	//dnzn,zn
 				}
 			}
 
 			goto _15;
 
 		_14: trace(14);
-
+			//не первая итерация
 			//--->
 
 			c1 = 0;
@@ -405,11 +416,11 @@ _4:	trace(4);
 			c5 = 0;
 			for (k = 0; k < n1; k++) {
 				for (l = 0; l < n2; l++) {
-					c1 += w[k][l] * v[k][l];
-					c2 += v[k][l] * r[k][l];
-					c3 += v[k][l] * v[k][l];
-					c4 += w[k][l] * r[k][l];
-					c5 += w[k][l] * w[k][l];
+					c1 += w[k][l] * v[k][l];	//dnzn,dnrn
+					c2 += v[k][l] * r[k][l];	//dnrn,rn
+					c3 += v[k][l] * v[k][l];	//dnrn,dnrn
+					c4 += w[k][l] * r[k][l];	//dnzn,rn
+					c5 += w[k][l] * w[k][l];	//dnzn,dnzn
 				}
 			}
 
@@ -417,14 +428,18 @@ _4:	trace(4);
 
 		_15: trace(15);
 
-			deltan = c5*c3 - c1*c1;
+			deltan = c5*c3 - c1*c1;				// расчет delta n (разный в двух методах)
 			if (deltan == 0) goto _19;
-			alphan = (c1*c2 - c3*c4) / (c5*c3 - c1*c1);
-			betan = (c1*c4 - c5*c2) / (c5*c3 - c1*c1);
+
+			alphan = (c1*c2 - c3*c4) / (c5*c3 - c1*c1);	//alpha
+			betan = (c1*c4 - c5*c2) / (c5*c3 - c1*c1);	//beta
 			for (k = 0; k < n1; k++) {
 				for (l = 0; l < n2; l++) {
 					xpr[k][l] = x[k][l];
+
+					//приращение и формирование нового плана
 					x[k][l] += alphan*z[k][l] + betan*r[k][l];
+
 					s7 = x[k][l];
 					s8 = xpr[k][l];
 					if (s7 > 0 && s8 <= 0) i++;
@@ -432,12 +447,12 @@ _4:	trace(4);
 					if (s7 <= 0) i1++;
 				}
 			}
-			nact = i1;
+			nact = i1; //кол-во активных элементов (т.е что меньше или равны нулю)
 
 		_16: trace(16);
 			for (k = 0; k < n1; k++) {
 				for (l = 0; l < n2; l++) {
-					z[k][l] = x[k][l] - xpr[k][l];
+					z[k][l] = x[k][l] - xpr[k][l];			//новый расчет zn по xn и xpr (на предыдущем шаге)
 					p[k][l] = (x[k][l] <= 0) ? pmax : 0;
 				}
 			}
@@ -463,6 +478,8 @@ _4:	trace(4);
 				}
 				s12 += (s11 - b[l]) * (s11 - b[l]);
 			}
+
+			//расчет ||rn||
 			dfeq = sqrtl(dfeq + s12);
 			phi = dfeq / sa2;
 			if (j2 == 1) goto _20;
@@ -485,7 +502,10 @@ _4:	trace(4);
 			}
 
 			s10 = sqrtl(s10);
-			cout("PRINTF: " + (String)n + "/" + (String)niter + " phi = " + FloatToStr(phi) + " res: " + IntToStr(getP(phi)));
+			cout("Текущее значение phi:");
+			cout( FloatToStr(phi));
+			cout("[выполнено: " + IntToStr(getP(phi)-1) + " из " + (step+1) + "]");
+
 			progress(phi);
 
 
@@ -494,6 +514,7 @@ _4:	trace(4);
 			if (j2 <= 0) goto _9; else goto _22;
 
 		_19: trace(19);
+			//первое условие соблюдено
 			j2 = 1;
 			goto _17;
 
@@ -529,8 +550,6 @@ _23: trace(23);
 		}
 	}
 
-
-	 TModuleForm->ProgressBar1->Position = TModuleForm->ProgressBar1->Max;
 
 
 	memfree(ni,y);

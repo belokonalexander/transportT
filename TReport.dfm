@@ -1,8 +1,8 @@
 object Form2: TForm2
-  Left = 549
-  Top = 154
-  BorderStyle = bsSingle
-  Caption = #1054#1090#1095#1077#1090
+  Left = 137
+  Top = 0
+  BorderStyle = bsDialog
+  Caption = #1054#1090#1095#1077#1090' '#1086' '#1087#1077#1088#1077#1074#1086#1079#1082#1077
   ClientHeight = 574
   ClientWidth = 1020
   Color = clBtnFace
@@ -55,7 +55,7 @@ object Form2: TForm2
       ColCount = 3
       DefaultColWidth = 100
       RowCount = 2
-      ScrollBars = ssHorizontal
+      ScrollBars = ssVertical
       TabOrder = 0
       OnDrawCell = StringGrid1DrawCell
       ColWidths = (

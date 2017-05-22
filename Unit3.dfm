@@ -1,5 +1,5 @@
 object Form3: TForm3
-  Left = 823
+  Left = 411
   Top = 77
   BorderStyle = bsSingle
   Caption = 'Form3'
