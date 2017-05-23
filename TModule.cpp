@@ -73,10 +73,8 @@ void TTModuleForm::setData(const String rep, const std::vector<Provider> *p, con
 		}
 	}
 
-
-
 	String factoryrecieversReportHash = "";
-    factoryrecieversReportHash = getHash(stringData);
+	factoryrecieversReportHash = getHash(stringData);
 	reportName = factoryrecieversReportHash + "_" + rep  ;
 
 
@@ -118,7 +116,7 @@ void __fastcall TTModuleForm::ButtonStartClick(TObject *Sender)
 	DWORD result = WaitForSingleObject( Thread, 0);
 
 	if (isThreadActive==false || result == WAIT_OBJECT_0) {
-          if(!reportIsExists || MessageBox(Handle, "Отчет за указанный период уже существует. Рассчитать заново?","Отчет существует",  MB_YESNO|MB_ICONQUESTION)  == IDYES ) {
+		  if(!reportIsExists || MessageBox(Handle, "Отчет за указанный период уже существует. Рассчитать заново?","Отчет существует",  MB_YESNO|MB_ICONQUESTION)  == IDYES ) {
 
 
 			TModuleForm->Button1->Enabled = true;
@@ -179,6 +177,11 @@ void startOptimization(void*dummy){
 
 	int start_time =  clock();
 
+	int step = 10;
+	TModuleForm->ProgressBar1->Max = step + 2;
+	TModuleForm->ProgressBar1->Position = 0;
+	TModuleForm->MemoInfo->Clear();
+	tr.setStepH(10);
 	tr.startExecute();
 	long double **out = tr.x;
 
@@ -480,23 +483,23 @@ void initStrings(){
 		strings0->Add("Регион-поставщик");
 		strings0->Add("Станция-получатель");
 		strings0->Add("Регион-получатель");
-		strings0->Add("Ед. груза");
-		strings0->Add("Цена маршрута");
-		strings0->Add("Итоговая стоимость");
+		strings0->Add("Ед. груза, тонн");
+		strings0->Add("Цена маршрута, руб.");
+		strings0->Add("Итоговая стоимость, руб.");
 
 		//1
 	TStringList * strings1 = new TStringList;
 		strings1->Add("N");
 		strings1->Add("Регион-поставщик");
-		strings1->Add("Ед. груза");
-		strings1->Add("Итоговая стоимость");
+		strings1->Add("Ед. груза, тонн");
+		strings1->Add("Итоговая стоимость, руб.");
 
 		//2
 	TStringList * strings2 = new TStringList;
 		strings2->Add("N");
 		strings2->Add("Станция-поставщик");
-		strings2->Add("Ед. груза");
-		strings2->Add("Итоговая стоимость");
+		strings2->Add("Ед. груза, тонн");
+		strings2->Add("Итоговая стоимость, руб.");
 
 
 	stringLists.push_back(strings0);

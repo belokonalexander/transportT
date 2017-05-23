@@ -11,9 +11,12 @@ class TransportResolver {
 
 public:
 
-    long double **x;
+	long double **x;
+
 
 	TransportResolver(const std::vector<int> * providers, const std::vector<int> *recievers, const std::vector<double> *tarifs ){
+
+        this->step = 10;
 
 		x = memloc(providers->size()+1,recievers->size()+1);
 
@@ -44,6 +47,12 @@ public:
 		a_size = providers->size();
 		b_size = recievers->size();
 
+
+
+	}
+
+	void setStepH(int step){
+        this->step = step;
 	}
 
 	void clearOutput(){
@@ -65,6 +74,8 @@ public:
 	}
 
 	void startExecute(){
+
+    cout("Процесс обработки данных запущен");
 
 	const int l1 = a_size;  //кол-во поставщиков
 	const int l2 = b_size;     //кол-во потребителей
@@ -93,7 +104,7 @@ public:
 	*sw2 = memloc(ns),
 	*as = memloc(nas);
 
-	int step = 10;
+
 
 	long double dzeta = 1.0/std::pow10(step);
 
@@ -104,9 +115,7 @@ public:
 
 	long np1 = 1;
 
-	TModuleForm->ProgressBar1->Max = step + 2;
-	TModuleForm->ProgressBar1->Position = 0;
-	TModuleForm->MemoInfo->Clear();
+
 
 	n1 = a_size;
 	n2 = b_size;
@@ -160,7 +169,6 @@ _4:	trace(4);
 	miter = 10000;	//кол-во итераций внешнего цикла
 
 	sa = 0;
-
 	for (k = 0; k < n1; k++)
 		sa += a[k] * a[k];
 
@@ -373,7 +381,7 @@ _4:	trace(4);
 			//--->
 
 		_12: trace(12);
-			//расчет x1 по x0
+			//расчет x1 по x0 для метода невязки
 			c6 = c2 / c3;
 			for (k = 0; k < n1; k++) {
 				for (l = 0; l < n2; l++) {
@@ -569,6 +577,7 @@ _23: trace(23);
 
 
 private:
+	int step; // h - коэфициент, отвечающий за точность вычислений; чем меньше, тем быстрее работает алгоритм
    //поставщики, потребители, матрица тарифов, результат
    long double *a, *b, **c,  a_size, b_size;
 

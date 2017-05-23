@@ -2,8 +2,8 @@ object Form4: TForm4
   Left = 0
   Top = 0
   Caption = 'Form4'
-  ClientHeight = 670
-  ClientWidth = 1374
+  ClientHeight = 727
+  ClientWidth = 1481
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,46 +17,47 @@ object Form4: TForm4
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 185
-    Height = 670
+    Width = 209
+    Height = 727
     Align = alLeft
     Caption = 'Panel1'
     TabOrder = 0
-    ExplicitHeight = 761
     object ListBox1: TListBox
       Left = 1
       Top = 1
-      Width = 183
-      Height = 668
+      Width = 207
+      Height = 725
       Align = alClient
       ItemHeight = 13
       TabOrder = 0
       OnClick = ListBox1Click
-      ExplicitHeight = 759
+      ExplicitWidth = 183
+      ExplicitHeight = 668
     end
   end
   object Panel2: TPanel
-    Left = 185
+    Left = 209
     Top = 0
-    Width = 1189
-    Height = 670
+    Width = 1272
+    Height = 727
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 958
-    ExplicitHeight = 761
+    ExplicitLeft = 185
+    ExplicitWidth = 1189
+    ExplicitHeight = 670
     object Panel3: TPanel
       Left = 1
       Top = 1
-      Width = 1187
+      Width = 1270
       Height = 24
       Align = alTop
       TabOrder = 0
-      ExplicitWidth = 956
+      ExplicitWidth = 1187
       object SelectedFactory: TLabel
         AlignWithMargins = True
         Left = 4
         Top = 4
-        Width = 1179
+        Width = 1262
         Height = 13
         Align = alTop
         ExplicitWidth = 3
@@ -65,26 +66,26 @@ object Form4: TForm4
     object Panel4: TPanel
       Left = 1
       Top = 49
-      Width = 1187
-      Height = 620
+      Width = 1270
+      Height = 677
       Align = alClient
       TabOrder = 1
-      ExplicitWidth = 956
-      ExplicitHeight = 711
+      ExplicitWidth = 1187
+      ExplicitHeight = 620
       object Panel7: TPanel
         Left = 1
         Top = 1
-        Width = 1185
-        Height = 618
+        Width = 1268
+        Height = 675
         Align = alClient
         Caption = 'Panel7'
         TabOrder = 0
-        ExplicitWidth = 954
-        ExplicitHeight = 709
+        ExplicitWidth = 1185
+        ExplicitHeight = 618
         object CheckListBox1: TCheckListBox
           Left = 1
           Top = 1
-          Width = 1183
+          Width = 1266
           Height = 60
           OnClickCheck = CheckListBox1ClickCheck
           Align = alTop
@@ -93,27 +94,29 @@ object Form4: TForm4
           ItemHeight = 13
           TabOrder = 0
           StyleElements = []
-          ExplicitWidth = 952
+          ExplicitWidth = 1183
         end
         object ScrollBox1: TScrollBox
           Left = 1
           Top = 61
-          Width = 1183
-          Height = 556
+          Width = 1266
+          Height = 613
           Align = alClient
           TabOrder = 1
-          ExplicitWidth = 952
-          ExplicitHeight = 647
+          ExplicitWidth = 1183
+          ExplicitHeight = 556
           object Chart1: TChart
             Left = 0
             Top = 0
-            Width = 1179
-            Height = 552
+            Width = 1262
+            Height = 609
             AllowPanning = pmNone
             Legend.Alignment = laTop
             MarginLeft = 10
             MarginRight = 10
             Title.Font.Height = -19
+            Title.Text.Strings = (
+              'TChart')
             BottomAxis.Increment = 2.000000000000000000
             BottomAxis.LabelsAngle = 35
             BottomAxis.LabelsFormat.Font.Height = -13
@@ -131,8 +134,8 @@ object Form4: TForm4
             Zoom.Allow = False
             Align = alClient
             TabOrder = 0
-            ExplicitWidth = 948
-            ExplicitHeight = 643
+            ExplicitWidth = 1179
+            ExplicitHeight = 552
             DefaultCanvas = 'TGDIPlusCanvas'
             ColorPaletteIndex = 13
             object Series1: TBarSeries
@@ -159,36 +162,36 @@ object Form4: TForm4
       object Panel9: TPanel
         Left = 1
         Top = 1
-        Width = 1185
-        Height = 618
+        Width = 1268
+        Height = 675
         Align = alClient
         Caption = 'Panel9'
         TabOrder = 1
-        ExplicitWidth = 954
-        ExplicitHeight = 709
+        ExplicitWidth = 1185
+        ExplicitHeight = 618
         object ScrollBox2: TScrollBox
           Left = 1
           Top = 1
-          Width = 1183
-          Height = 616
+          Width = 1266
+          Height = 673
           Align = alClient
           TabOrder = 0
-          ExplicitWidth = 952
-          ExplicitHeight = 707
+          ExplicitWidth = 1183
+          ExplicitHeight = 616
           object Chart2: TChart
             Left = 0
             Top = 0
-            Width = 593
-            Height = 612
+            Width = 625
+            Height = 669
             Legend.Alignment = laBottom
             Legend.CustomPosition = True
             Legend.HorizJustify = ljYes
-            Legend.Left = 30
+            Legend.Left = 31
             Legend.LeftPercent = 5
             Legend.PositionUnits = muPercent
             Legend.ResizeChart = False
             Legend.TextStyle = ltsPlain
-            Legend.Top = 490
+            Legend.Top = 535
             Legend.TopPercent = 80
             Legend.TopPos = 0
             Title.Font.Height = -19
@@ -212,7 +215,6 @@ object Form4: TForm4
             View3DOptions.Rotation = 360
             Align = alLeft
             TabOrder = 0
-            ExplicitHeight = 703
             DefaultCanvas = 'TGDIPlusCanvas'
             ColorPaletteIndex = 13
             object BarSeries2: TPieSeries
@@ -244,19 +246,19 @@ object Form4: TForm4
             end
           end
           object Chart3: TChart
-            Left = 593
+            Left = 625
             Top = 0
-            Width = 586
-            Height = 612
+            Width = 637
+            Height = 669
             Legend.Alignment = laBottom
             Legend.CustomPosition = True
             Legend.HorizJustify = ljYes
-            Legend.Left = 29
+            Legend.Left = 32
             Legend.LeftPercent = 5
             Legend.PositionUnits = muPercent
             Legend.ResizeChart = False
             Legend.TextStyle = ltsPlain
-            Legend.Top = 490
+            Legend.Top = 535
             Legend.TopPercent = 80
             Legend.TopPos = 0
             Title.Font.Height = -19
@@ -275,16 +277,17 @@ object Form4: TForm4
             View3DOptions.Rotation = 360
             Align = alClient
             TabOrder = 1
-            ExplicitLeft = 520
-            ExplicitWidth = 551
-            ExplicitHeight = 703
+            ExplicitLeft = 590
+            ExplicitTop = 2
+            ExplicitWidth = 586
+            ExplicitHeight = 609
             DefaultCanvas = 'TGDIPlusCanvas'
             ColorPaletteIndex = 13
             object PieSeries1: TPieSeries
               Marks.Style = smsPercent
               Marks.Callout.Length = 20
               SeriesColor = clBlue
-              XValues.Order = loNone
+              XValues.Order = loAscending
               YValues.Name = 'Pie'
               YValues.Order = loNone
               CustomXRadius = 200
@@ -314,11 +317,11 @@ object Form4: TForm4
     object Panel5: TPanel
       Left = 1
       Top = 25
-      Width = 1187
+      Width = 1270
       Height = 24
       Align = alTop
       TabOrder = 2
-      ExplicitWidth = 956
+      ExplicitWidth = 1187
       object Panel6: TPanel
         Left = 1
         Top = 1

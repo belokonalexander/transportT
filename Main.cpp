@@ -149,24 +149,24 @@ void initApplicationTabs(){
 	Form1->ProvidersGrid->Cells[0][0] = "N" ;
 	Form1->ProvidersGrid->Cells[1][0] = "Поставщик" ;
 	Form1->ProvidersGrid->Cells[2][0] = "Идентификатор" ;
-	Form1->ProvidersGrid->Cells[3][0] = "Запасы" ;
+	Form1->ProvidersGrid->Cells[3][0] = "Запасы, тонн" ;
 
 	Form1->RecieversGrid->Cells[0][0] = "N" ;
 	Form1->RecieversGrid->Cells[1][0] = "Потребитель" ;
 	Form1->RecieversGrid->Cells[2][0] = "Идентификатор" ;
-	Form1->RecieversGrid->Cells[3][0] = "Потребности" ;
+	Form1->RecieversGrid->Cells[3][0] = "Потребности, тонн" ;
 
 	Form1->TarifsGrid->Cells[0][0] = "N" ;
 	Form1->TarifsGrid->Cells[1][0] = "Поставщик" ;
 	Form1->TarifsGrid->Cells[2][0] = "Потребитель" ;
-	Form1->TarifsGrid->Cells[3][0] = "Стоимость" ;
+	Form1->TarifsGrid->Cells[3][0] = "Стоимость, руб" ;
 
 	Form1->ResultsGrid->Cells[0][0] = "N" ;
 	Form1->ResultsGrid->Cells[1][0] = "Поставщик" ;
 	Form1->ResultsGrid->Cells[2][0] = "Потребитель" ;
-	Form1->ResultsGrid->Cells[3][0] = "Стоимость маршрута" ;
-	Form1->ResultsGrid->Cells[4][0] = "Всего перевезено" ;
-	Form1->ResultsGrid->Cells[5][0] = "Итоговая стоимость" ;
+	Form1->ResultsGrid->Cells[3][0] = "Стоимость маршрута, руб." ;
+	Form1->ResultsGrid->Cells[4][0] = "Всего перевезено, тонн" ;
+	Form1->ResultsGrid->Cells[5][0] = "Итоговая стоимость, руб." ;
 
    }
 

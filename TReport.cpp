@@ -71,7 +71,7 @@ void __fastcall TForm2::FormShow(TObject *Sender)
 	StringGrid1->Rows[0] = title;
 	StringGrid1->ColWidths[0] = 342;
 	StringGrid1->ColWidths[1] = 342;
-	StringGrid1->ColWidths[2] = 342;
+	StringGrid1->ColWidths[2] = 362;
 
 	StringGrid1->Cells[0][1] = "Общие затраты, рубли";
 	StringGrid1->Cells[0][2] = "Ед.продукции, тонны";
@@ -183,7 +183,7 @@ void __fastcall TForm2::FormShow(TObject *Sender)
 
 		if(ord==0) {
 			   was_station_p+=summary[ord].was_value;
-			   now_station_p+=summary[ord].was_value;
+			   now_station_p+=summary[ord].value;
 		} else
 			if(summary[ord].provider_id!=summary[ord-1].provider_id){
 

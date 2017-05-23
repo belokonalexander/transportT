@@ -243,8 +243,8 @@ void fillGrapgh(){
 
 
 
-			Form4->Series1->AddBar(regions_values[i],regions->Strings[i], clYellow);
-			Form4->Series2->AddBar(regions_was_values[i],regions->Strings[i],clBlue);
+			Form4->Series1->AddBar(regions_was_values[i],regions->Strings[i], clYellow);
+			Form4->Series2->AddBar(regions_values[i],regions->Strings[i],clBlue);
 			//Form4->Series1->Add
 
 

@@ -66,33 +66,6 @@ class TabbedView2 : public TControl{
 
 
 
-		//for(int i =0; i < pairsCount; i++){
-		//   TabbedView  * tv = (TabbedView*)new TabbedView(controller,viewObject, Form1);
-		//}
-		/*int count = Form1->Panel5->ControlCount;
-		for(int i=0; i<count; i++){
-
-		   TPanel *controller = (TPanel*)Form1->Panel5->Controls[i];
-		   controller->Cursor = crHandPoint;
-		   TPanel *viewObject;
-		   boolean isSelected = false;
-		   String number = controller->Name.SubString(6,controller->Name.Length());
-		   if(number=="7"){
-			viewObject = Form1->Panel10;
-			isSelected = true;
-		   } else if(number=="8"){
-		   viewObject = Form1->Panel11;
-		   } else if(number=="9"){
-		   viewObject = Form1->Panel12;
-		   }else if(number=="6"){
-		   viewObject = Form1->Panel13;
-		   }
-		   TabbedView  * tv = (TabbedView*)new TabbedView(controller,viewObject, Form1);
-		   if(isSelected)
-				tv->setSelected();
-			else
-				tv->unselectTab();
-	   }  */
 	}
 
 };

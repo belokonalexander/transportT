@@ -3,7 +3,7 @@ object TModuleForm: TTModuleForm
   Top = 0
   Caption = 'TModuleForm'
   ClientHeight = 646
-  ClientWidth = 1275
+  ClientWidth = 1199
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,7 +17,7 @@ object TModuleForm: TTModuleForm
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 225
+    Width = 161
     Height = 605
     Align = alLeft
     Caption = 'Panel1'
@@ -25,20 +25,22 @@ object TModuleForm: TTModuleForm
     object MemoInfo: TMemo
       Left = 1
       Top = 1
-      Width = 223
+      Width = 159
       Height = 603
       Align = alClient
       Enabled = False
       TabOrder = 0
+      ExplicitWidth = 136
     end
   end
   object Panel2: TPanel
     Left = 0
     Top = 605
-    Width = 1275
+    Width = 1199
     Height = 41
     Align = alBottom
     TabOrder = 1
+    ExplicitWidth = 1275
     object Label2: TLabel
       Left = 230
       Top = 14
@@ -55,7 +57,7 @@ object TModuleForm: TTModuleForm
     end
     object Button1: TButton
       AlignWithMargins = True
-      Left = 981
+      Left = 905
       Top = 4
       Width = 147
       Height = 33
@@ -64,10 +66,11 @@ object TModuleForm: TTModuleForm
       Enabled = False
       TabOrder = 0
       OnClick = Button1Click
+      ExplicitLeft = 981
     end
     object ButtonStart: TButton
       AlignWithMargins = True
-      Left = 1134
+      Left = 1058
       Top = 4
       Width = 137
       Height = 33
@@ -75,6 +78,7 @@ object TModuleForm: TTModuleForm
       Caption = #1054#1073#1088#1072#1073#1086#1090#1072#1090#1100
       TabOrder = 1
       OnClick = ButtonStartClick
+      ExplicitLeft = 1134
     end
     object ProgressBar1: TProgressBar
       Left = 7
@@ -85,7 +89,7 @@ object TModuleForm: TTModuleForm
     end
     object ReportButton: TButton
       AlignWithMargins = True
-      Left = 828
+      Left = 752
       Top = 4
       Width = 147
       Height = 33
@@ -93,10 +97,11 @@ object TModuleForm: TTModuleForm
       Caption = #1054#1090#1095#1077#1090
       TabOrder = 3
       OnClick = ReportButtonClick
+      ExplicitLeft = 828
     end
     object ReportRecieversButton: TButton
       AlignWithMargins = True
-      Left = 675
+      Left = 599
       Top = 4
       Width = 147
       Height = 33
@@ -104,20 +109,23 @@ object TModuleForm: TTModuleForm
       Caption = #1055#1086#1090#1088#1077#1073#1080#1090#1077#1083#1080
       TabOrder = 4
       OnClick = ReportRecieversButtonClick
+      ExplicitLeft = 675
     end
   end
   object Panel3: TPanel
-    Left = 225
+    Left = 161
     Top = 0
-    Width = 1050
+    Width = 1038
     Height = 605
     Align = alClient
     TabOrder = 2
+    ExplicitLeft = 225
+    ExplicitWidth = 1050
     object ReportExists: TLabel
       AlignWithMargins = True
       Left = 4
       Top = 6
-      Width = 1035
+      Width = 1023
       Height = 19
       Margins.Top = 5
       Margins.Right = 10
@@ -136,15 +144,16 @@ object TModuleForm: TTModuleForm
     object Panel5: TPanel
       Left = 1
       Top = 28
-      Width = 1048
+      Width = 1036
       Height = 576
       Align = alClient
       Caption = 'Panel5'
       TabOrder = 0
+      ExplicitWidth = 1048
       object StringGrid1: TStringGrid
         Left = 1
         Top = 30
-        Width = 1046
+        Width = 1034
         Height = 545
         Align = alClient
         ColCount = 8
@@ -153,6 +162,7 @@ object TModuleForm: TTModuleForm
         RowCount = 2
         ScrollBars = ssVertical
         TabOrder = 0
+        ExplicitWidth = 1046
         ColWidths = (
           128
           128
@@ -169,10 +179,11 @@ object TModuleForm: TTModuleForm
       object Panel4: TPanel
         Left = 1
         Top = 1
-        Width = 1046
+        Width = 1034
         Height = 29
         Align = alTop
         TabOrder = 1
+        ExplicitWidth = 1046
         object Label1: TLabel
           Left = 8
           Top = 8
@@ -189,7 +200,7 @@ object TModuleForm: TTModuleForm
         end
         object ComboBox1: TComboBox
           AlignWithMargins = True
-          Left = 897
+          Left = 885
           Top = 4
           Width = 145
           Height = 21
@@ -204,6 +215,7 @@ object TModuleForm: TTModuleForm
             #1053#1077#1090' '#1092#1080#1083#1100#1090#1088#1072
             #1040#1075#1088#1077#1075#1072#1094#1080#1103' '#1087#1086' '#1088#1077#1075#1080#1086#1085#1091
             #1040#1075#1088#1077#1075#1072#1094#1080#1103' '#1087#1086' '#1089#1090#1072#1085#1094#1080#1080)
+          ExplicitLeft = 897
         end
       end
     end
