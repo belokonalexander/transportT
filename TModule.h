@@ -25,9 +25,7 @@
 class TTModuleForm : public TForm
 {
 __published:	// IDE-managed Components
-	TButton *ButtonStart;
 	TMemo *MemoInfo;
-	TButton *Button1;
 	TPanel *Panel1;
 	TPanel *Panel2;
 	TProgressBar *ProgressBar1;
@@ -41,8 +39,10 @@ __published:	// IDE-managed Components
 	TLabel *Label2;
 	TLabel *TotalSum;
 	TComboBox *ComboBox1;
-	TButton *ReportButton;
-	TButton *ReportRecieversButton;
+	TSpeedButton *ReportRecieversButton;
+	TSpeedButton *ReportButton;
+	TSpeedButton *Button1;
+	TSpeedButton *ButtonStart;
 	void __fastcall ButtonStartClick(TObject *Sender);
 	void __fastcall Button1Click(TObject *Sender);
 	void __fastcall ComboBox1Change(TObject *Sender);

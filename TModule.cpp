@@ -64,7 +64,7 @@ void TTModuleForm::setData(const String rep, const std::vector<Provider> *p, con
 
 
 
-
+	if(r->size()>0) {
 	std::vector<String> stringData;
 
 	for(int i = 0; i < r->size(); i++){
@@ -76,7 +76,10 @@ void TTModuleForm::setData(const String rep, const std::vector<Provider> *p, con
 	String factoryrecieversReportHash = "";
 	factoryrecieversReportHash = getHash(stringData);
 	reportName = factoryrecieversReportHash + "_" + rep  ;
-
+	} else  {
+		reportName = rep;
+        TModuleForm->ButtonStart->Enabled = false;
+	}
 
 
 	reportIsExists = checkReportInDB();
@@ -483,7 +486,7 @@ void initStrings(){
 		strings0->Add("Регион-поставщик");
 		strings0->Add("Станция-получатель");
 		strings0->Add("Регион-получатель");
-		strings0->Add("Ед. груза, тонн");
+		strings0->Add("Ед. груза, тонны");
 		strings0->Add("Цена маршрута, руб.");
 		strings0->Add("Итоговая стоимость, руб.");
 
@@ -491,14 +494,14 @@ void initStrings(){
 	TStringList * strings1 = new TStringList;
 		strings1->Add("N");
 		strings1->Add("Регион-поставщик");
-		strings1->Add("Ед. груза, тонн");
+		strings1->Add("Ед. груза, тонны");
 		strings1->Add("Итоговая стоимость, руб.");
 
 		//2
 	TStringList * strings2 = new TStringList;
 		strings2->Add("N");
 		strings2->Add("Станция-поставщик");
-		strings2->Add("Ед. груза, тонн");
+		strings2->Add("Ед. груза, тонны");
 		strings2->Add("Итоговая стоимость, руб.");
 
 

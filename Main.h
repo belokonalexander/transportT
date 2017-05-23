@@ -29,6 +29,8 @@
 #include <FireDAC.UI.Intf.hpp>
 #include <FireDAC.VCLUI.Wait.hpp>
 #include <Vcl.Grids.hpp>
+#include <Vcl.WinXCtrls.hpp>
+#include <Vcl.Buttons.hpp>
 
 
 #include <vector>
@@ -45,7 +47,6 @@ __published:	// IDE-managed Components
 	TPanel *Panel1;
 	TPanel *Panel2;
 	TPanel *Panel3;
-	TButton *Button1;
 	TLabel *Label1;
 	TLabel *Label2;
 	TEdit *Edit1;
@@ -53,7 +54,6 @@ __published:	// IDE-managed Components
 	TEdit *Edit3;
 	TEdit *Edit4;
 	TEdit *Edit5;
-	TEdit *Edit6;
 	TPanel *Panel4;
 	TEdit *Edit8;
 	TPanel *Panel5;
@@ -84,13 +84,26 @@ __published:	// IDE-managed Components
 	TPanel *Panel16;
 	TLabel *Label7;
 	TLabel *ResultCost;
-	TButton *ExecuteButton;
-	TButton *Button2;
+	TComboBox *ComboBox1;
+	TLabel *Label9;
+	TPanel *Panel17;
+	TLabel *Label8;
+	TLabel *Label10;
+	TSpeedButton *ExecuteButton;
+	TSpeedButton *Button1;
+	TEdit *Edit6;
+	TSpeedButton *Button2;
+	TSpeedButton *SpeedButton1;
+	TSpeedButton *SpeedButton2;
 
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall Button1Click(TObject *Sender);
 	void __fastcall ExecuteButtonClick(TObject *Sender);
 	void __fastcall Button2Click(TObject *Sender);
+	void __fastcall ComboBox1DropDown(TObject *Sender);
+	void __fastcall SpeedButton1Click(TObject *Sender);
+	void __fastcall ComboBox1Change(TObject *Sender);
+
 
 private:	// User declarations
 public:		// User declarations

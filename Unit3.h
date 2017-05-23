@@ -11,6 +11,7 @@
 #include <Vcl.Grids.hpp>
 #include <Vcl.ValEdit.hpp>
 #include <Vcl.ExtCtrls.hpp>
+#include <Vcl.Buttons.hpp>
 #include <vector>
 
 
@@ -24,8 +25,8 @@ __published:	// IDE-managed Components
 	TValueListEditor *ValueListEditor1;
 	TPanel *Panel1;
 	TPanel *Panel2;
-	TButton *Button1;
-	TButton *Button2;
+	TSpeedButton *Button2;
+	TSpeedButton *Button1;
 	void __fastcall ValueListEditor1SetEditText(TObject *Sender, int ACol, int ARow,
           const UnicodeString Value);
 	void __fastcall Button1Click(TObject *Sender);

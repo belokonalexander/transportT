@@ -61,7 +61,7 @@ void TForm3::setData(std::vector<Provider> *p){
 
 	  TStringList * strings1 = new TStringList;
 	  strings1->Add("Завод-поставщик");
-	  strings1->Add("Ед. продукции");
+	  strings1->Add("Ед. продукции, тонны");
 
 	  Form3->ValueListEditor1->TitleCaptions= strings1;
 
@@ -119,11 +119,6 @@ void init(){
 
 	  TStringList * strings1 = new TStringList;
 	  Form3->ValueListEditor1->Strings = strings1;
-
-	//Form3->Memo1->Lines->Add(Form3->ValueListEditor1->Strings->Text);
-
-	//while (Form3->ValueListEditor1->RowCount > 2)
-	  //Form3->ValueListEditor1->DeleteRow(1);
 
 
 

@@ -31,7 +31,6 @@ object Form2: TForm2
     Font.Style = []
     ParentFont = False
     TabOrder = 0
-    ExplicitWidth = 1020
   end
   object Panel2: TPanel
     Left = 0
@@ -47,7 +46,6 @@ object Form2: TForm2
     Font.Style = []
     ParentFont = False
     TabOrder = 1
-    ExplicitWidth = 1020
     object StringGrid1: TStringGrid
       Left = 1
       Top = 1
@@ -56,11 +54,13 @@ object Form2: TForm2
       Align = alClient
       ColCount = 3
       DefaultColWidth = 100
+      DrawingStyle = gdsGradient
+      FixedCols = 0
       RowCount = 2
+      GradientEndColor = clMenu
       ScrollBars = ssVertical
       TabOrder = 0
       OnDrawCell = StringGrid1DrawCell
-      ExplicitWidth = 1018
       ColWidths = (
         100
         100

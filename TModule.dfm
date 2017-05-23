@@ -1,7 +1,7 @@
 object TModuleForm: TTModuleForm
   Left = 0
   Top = 0
-  Caption = 'TModuleForm'
+  Caption = #1048#1085#1092#1086#1088#1084#1072#1094#1080#1103' '#1086#1073' '#1086#1090#1095#1077#1090#1077
   ClientHeight = 646
   ClientWidth = 1199
   Color = clBtnFace
@@ -30,7 +30,6 @@ object TModuleForm: TTModuleForm
       Align = alClient
       Enabled = False
       TabOrder = 0
-      ExplicitWidth = 136
     end
   end
   object Panel2: TPanel
@@ -39,8 +38,10 @@ object TModuleForm: TTModuleForm
     Width = 1199
     Height = 41
     Align = alBottom
+    Color = clWhite
+    ParentBackground = False
     TabOrder = 1
-    ExplicitWidth = 1275
+    ExplicitTop = 609
     object Label2: TLabel
       Left = 230
       Top = 14
@@ -55,61 +56,94 @@ object TModuleForm: TTModuleForm
       Height = 13
       Caption = 'Sum'
     end
-    object Button1: TButton
+    object ReportRecieversButton: TSpeedButton
       AlignWithMargins = True
-      Left = 905
+      Left = 533
       Top = 4
-      Width = 147
+      Width = 161
       Height = 33
+      Hint = '123'
+      Align = alRight
+      Caption = #1055#1086#1090#1088#1077#1073#1080#1090#1077#1083#1080
+      Flat = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clHotLight
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      OnClick = ReportRecieversButtonClick
+      ExplicitLeft = 408
+      ExplicitTop = -1
+      ExplicitHeight = 42
+    end
+    object ReportButton: TSpeedButton
+      AlignWithMargins = True
+      Left = 700
+      Top = 4
+      Width = 161
+      Height = 33
+      Hint = '123'
+      Align = alRight
+      Caption = #1054#1090#1095#1077#1090
+      Flat = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clHotLight
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      OnClick = ReportButtonClick
+      ExplicitLeft = 771
+      ExplicitTop = 6
+    end
+    object Button1: TSpeedButton
+      AlignWithMargins = True
+      Left = 867
+      Top = 4
+      Width = 161
+      Height = 33
+      Hint = '123'
       Align = alRight
       Caption = #1055#1088#1077#1088#1074#1072#1090#1100
       Enabled = False
-      TabOrder = 0
+      Flat = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clHotLight
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
       OnClick = Button1Click
-      ExplicitLeft = 981
+      ExplicitLeft = 908
+      ExplicitTop = 6
     end
-    object ButtonStart: TButton
+    object ButtonStart: TSpeedButton
       AlignWithMargins = True
-      Left = 1058
+      Left = 1034
       Top = 4
-      Width = 137
+      Width = 161
       Height = 33
+      Hint = '123'
       Align = alRight
       Caption = #1054#1073#1088#1072#1073#1086#1090#1072#1090#1100
-      TabOrder = 1
+      Flat = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clHotLight
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
       OnClick = ButtonStartClick
-      ExplicitLeft = 1134
+      ExplicitLeft = 1075
+      ExplicitTop = 6
     end
     object ProgressBar1: TProgressBar
       Left = 7
       Top = 13
       Width = 209
       Height = 17
-      TabOrder = 2
-    end
-    object ReportButton: TButton
-      AlignWithMargins = True
-      Left = 752
-      Top = 4
-      Width = 147
-      Height = 33
-      Align = alRight
-      Caption = #1054#1090#1095#1077#1090
-      TabOrder = 3
-      OnClick = ReportButtonClick
-      ExplicitLeft = 828
-    end
-    object ReportRecieversButton: TButton
-      AlignWithMargins = True
-      Left = 599
-      Top = 4
-      Width = 147
-      Height = 33
-      Align = alRight
-      Caption = #1055#1086#1090#1088#1077#1073#1080#1090#1077#1083#1080
-      TabOrder = 4
-      OnClick = ReportRecieversButtonClick
-      ExplicitLeft = 675
+      TabOrder = 0
     end
   end
   object Panel3: TPanel
@@ -119,8 +153,6 @@ object TModuleForm: TTModuleForm
     Height = 605
     Align = alClient
     TabOrder = 2
-    ExplicitLeft = 225
-    ExplicitWidth = 1050
     object ReportExists: TLabel
       AlignWithMargins = True
       Left = 4
@@ -149,7 +181,6 @@ object TModuleForm: TTModuleForm
       Align = alClient
       Caption = 'Panel5'
       TabOrder = 0
-      ExplicitWidth = 1048
       object StringGrid1: TStringGrid
         Left = 1
         Top = 30
@@ -158,11 +189,12 @@ object TModuleForm: TTModuleForm
         Align = alClient
         ColCount = 8
         DefaultColWidth = 128
+        DrawingStyle = gdsGradient
         FixedCols = 0
         RowCount = 2
+        GradientEndColor = clMenu
         ScrollBars = ssVertical
         TabOrder = 0
-        ExplicitWidth = 1046
         ColWidths = (
           128
           128
@@ -183,7 +215,6 @@ object TModuleForm: TTModuleForm
         Height = 29
         Align = alTop
         TabOrder = 1
-        ExplicitWidth = 1046
         object Label1: TLabel
           Left = 8
           Top = 8
@@ -215,7 +246,6 @@ object TModuleForm: TTModuleForm
             #1053#1077#1090' '#1092#1080#1083#1100#1090#1088#1072
             #1040#1075#1088#1077#1075#1072#1094#1080#1103' '#1087#1086' '#1088#1077#1075#1080#1086#1085#1091
             #1040#1075#1088#1077#1075#1072#1094#1080#1103' '#1087#1086' '#1089#1090#1072#1085#1094#1080#1080)
-          ExplicitLeft = 897
         end
       end
     end

@@ -86,7 +86,7 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 	boolean error = false;
 	TEdit * edit;
 
-
+    Edit8->Text="";
 
 	for(int i=0; i<Form1->Panel2->ControlCount; i++){
 
@@ -114,7 +114,7 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 									error = true;
 									MessageBox(NULL, "Начальная дата больше конечной","Ошибка", MB_ICONSTOP);
 									Edit8->Text="Ошибка ввода даты: начальная дата больше конечной"; Edit8->Font->Color=clRed;
-				 Edit8->Refresh();
+									Edit8->Refresh();
 								}
 			} catch(...)
 			{
@@ -124,8 +124,8 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 				 Edit8->Refresh();
 			}
 
-
-				 initDatabase(date.FormatString("yyyymmdd"), date2.FormatString("yyyymmdd"));
+				 if(!error)
+					initDatabase(date.FormatString("yyyymmdd"), date2.FormatString("yyyymmdd"));
 				  //initRecievers(date.DateString(), date2.DateString());
 
 
@@ -149,12 +149,12 @@ void initApplicationTabs(){
 	Form1->ProvidersGrid->Cells[0][0] = "N" ;
 	Form1->ProvidersGrid->Cells[1][0] = "Поставщик" ;
 	Form1->ProvidersGrid->Cells[2][0] = "Идентификатор" ;
-	Form1->ProvidersGrid->Cells[3][0] = "Запасы, тонн" ;
+	Form1->ProvidersGrid->Cells[3][0] = "Запасы, тонны" ;
 
 	Form1->RecieversGrid->Cells[0][0] = "N" ;
 	Form1->RecieversGrid->Cells[1][0] = "Потребитель" ;
 	Form1->RecieversGrid->Cells[2][0] = "Идентификатор" ;
-	Form1->RecieversGrid->Cells[3][0] = "Потребности, тонн" ;
+	Form1->RecieversGrid->Cells[3][0] = "Потребности, тонны" ;
 
 	Form1->TarifsGrid->Cells[0][0] = "N" ;
 	Form1->TarifsGrid->Cells[1][0] = "Поставщик" ;
@@ -165,7 +165,7 @@ void initApplicationTabs(){
 	Form1->ResultsGrid->Cells[1][0] = "Поставщик" ;
 	Form1->ResultsGrid->Cells[2][0] = "Потребитель" ;
 	Form1->ResultsGrid->Cells[3][0] = "Стоимость маршрута, руб." ;
-	Form1->ResultsGrid->Cells[4][0] = "Всего перевезено, тонн" ;
+	Form1->ResultsGrid->Cells[4][0] = "Всего перевезено, тонны" ;
 	Form1->ResultsGrid->Cells[5][0] = "Итоговая стоимость, руб." ;
 
    }
@@ -422,4 +422,59 @@ void TForm1::updateRecievers(std::vector<Reciever> *r){
 void TForm1::updateProviders(std::vector<Provider> *p){
 
 }
+
+
+
+
+
+void __fastcall TForm1::ComboBox1DropDown(TObject *Sender)
+{
+
+		Form1->ComboBox1->Clear();
+		TFDQuery *query;
+		query = new TFDQuery(NULL);
+
+		query->Connection = Form1->TransportdbConnection;
+
+		query->SQL->Text = "SELECT DISTINCT report_name FROM dbo.reports ORDER BY report_name";
+		query->Open();
+
+		TStringList * strings1 = new TStringList;
+
+		while (!query->Eof) {
+
+		strings1->Add(query-> FieldByName("report_name")->AsString);
+		query->Next();
+
+		}
+
+	  query->Close();
+
+	   Form1->ComboBox1->Items = strings1;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::SpeedButton1Click(TObject *Sender)
+{
+	String ts =  Form1->ComboBox1->Text;
+	std::vector<Provider> a;
+	std::vector<Reciever> b;
+	std::vector<Tarif> c;
+	std::vector<Result> d;
+
+	TModuleForm->setData(ts, &a, &b, &c, &d);
+	TModuleForm->ShowModal();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::ComboBox1Change(TObject *Sender)
+{
+	if(Form1->ComboBox1->ItemIndex>=0)
+	  Form1->SpeedButton1->Enabled = true;
+	else Form1->SpeedButton1->Enabled = false;
+}
+//---------------------------------------------------------------------------
+
+
+//---------------------------------------------------------------------------
 

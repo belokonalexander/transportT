@@ -27,10 +27,11 @@ object Form3: TForm3
       Left = 1
       Top = 1
       Width = 470
-      Height = 447
+      Height = 435
       Align = alClient
       TabOrder = 0
       OnSetEditText = ValueListEditor1SetEditText
+      ExplicitHeight = 447
       ColWidths = (
         228
         236)
@@ -40,32 +41,54 @@ object Form3: TForm3
     end
     object Panel2: TPanel
       Left = 1
-      Top = 448
+      Top = 436
       Width = 470
-      Height = 36
+      Height = 48
       Align = alBottom
+      Color = clWhite
+      ParentBackground = False
       TabOrder = 1
-      object Button1: TButton
+      object Button2: TSpeedButton
         AlignWithMargins = True
-        Left = 310
+        Left = 305
         Top = 4
-        Width = 75
-        Height = 28
-        Align = alRight
-        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
-        TabOrder = 0
-        OnClick = Button1Click
-      end
-      object Button2: TButton
-        AlignWithMargins = True
-        Left = 391
-        Top = 4
-        Width = 75
-        Height = 28
+        Width = 161
+        Height = 40
+        Hint = '123'
         Align = alRight
         Caption = #1054#1090#1084#1077#1085#1072
-        TabOrder = 1
+        Flat = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clHotLight
+        Font.Height = -16
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
         OnClick = Button2Click
+        ExplicitLeft = 1075
+        ExplicitTop = 6
+        ExplicitHeight = 33
+      end
+      object Button1: TSpeedButton
+        AlignWithMargins = True
+        Left = 138
+        Top = 4
+        Width = 161
+        Height = 40
+        Hint = '123'
+        Align = alRight
+        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
+        Flat = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clHotLight
+        Font.Height = -16
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        OnClick = Button1Click
+        ExplicitLeft = 1075
+        ExplicitTop = 6
+        ExplicitHeight = 33
       end
     end
   end
