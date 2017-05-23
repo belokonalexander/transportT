@@ -103,6 +103,7 @@ __published:	// IDE-managed Components
 	void __fastcall ComboBox1DropDown(TObject *Sender);
 	void __fastcall SpeedButton1Click(TObject *Sender);
 	void __fastcall ComboBox1Change(TObject *Sender);
+	void __fastcall SpeedButton2Click(TObject *Sender);
 
 
 private:	// User declarations

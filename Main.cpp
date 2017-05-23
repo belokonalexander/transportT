@@ -17,6 +17,7 @@
 
 #include "TModule.h"
 #include "Unit3.h"
+#include "HelpPr.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -476,5 +477,11 @@ void __fastcall TForm1::ComboBox1Change(TObject *Sender)
 //---------------------------------------------------------------------------
 
 
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::SpeedButton2Click(TObject *Sender)
+{
+  HelpForm->Show();
+}
 //---------------------------------------------------------------------------
 

@@ -22,7 +22,6 @@ object Form1: TForm1
     Height = 667
     Align = alClient
     TabOrder = 0
-    ExplicitWidth = 1324
     object Panel2: TPanel
       Left = 1
       Top = 36
@@ -30,9 +29,6 @@ object Form1: TForm1
       Height = 525
       Align = alLeft
       TabOrder = 0
-      ExplicitLeft = -3
-      ExplicitTop = 48
-      ExplicitHeight = 519
       object Label1: TLabel
         Left = 18
         Top = 131
@@ -215,10 +211,6 @@ object Form1: TForm1
       Height = 525
       Align = alClient
       TabOrder = 1
-      ExplicitLeft = 227
-      ExplicitTop = 42
-      ExplicitWidth = 1096
-      ExplicitHeight = 624
       object Edit8: TEdit
         Left = 1
         Top = 1
@@ -227,7 +219,6 @@ object Form1: TForm1
         Align = alTop
         Enabled = False
         TabOrder = 0
-        ExplicitWidth = 1094
       end
       object Panel5: TPanel
         Left = 1
@@ -236,7 +227,6 @@ object Form1: TForm1
         Height = 27
         Align = alTop
         TabOrder = 1
-        ExplicitWidth = 1094
         object Panel6: TPanel
           Left = 820
           Top = 1
@@ -247,7 +237,6 @@ object Form1: TForm1
           Color = clMenu
           ParentBackground = False
           TabOrder = 0
-          ExplicitWidth = 273
         end
         object Panel7: TPanel
           Left = 1
@@ -280,8 +269,6 @@ object Form1: TForm1
           Color = clMenu
           ParentBackground = False
           TabOrder = 2
-          ExplicitLeft = 280
-          ExplicitTop = -3
         end
         object Panel9: TPanel
           Left = 547
@@ -303,8 +290,6 @@ object Form1: TForm1
         Align = alClient
         Caption = 'Panel10'
         TabOrder = 2
-        ExplicitWidth = 1094
-        ExplicitHeight = 574
         object ProvidersGrid: TStringGrid
           Left = 1
           Top = 1
@@ -321,7 +306,6 @@ object Form1: TForm1
           ParentCtl3D = False
           ScrollBars = ssVertical
           TabOrder = 0
-          ExplicitHeight = 419
           ColWidths = (
             180
             180
@@ -340,8 +324,6 @@ object Form1: TForm1
           Height = 48
           Align = alBottom
           TabOrder = 1
-          ExplicitTop = 424
-          ExplicitWidth = 1098
           object Label3: TLabel
             Left = 16
             Top = 8
@@ -392,8 +374,6 @@ object Form1: TForm1
         Align = alClient
         Caption = 'Panel11'
         TabOrder = 3
-        ExplicitWidth = 1094
-        ExplicitHeight = 574
         object Panel15: TPanel
           Left = 1
           Top = 426
@@ -401,8 +381,6 @@ object Form1: TForm1
           Height = 48
           Align = alBottom
           TabOrder = 0
-          ExplicitTop = 420
-          ExplicitWidth = 1098
           object Label5: TLabel
             Left = 16
             Top = 8
@@ -479,7 +457,6 @@ object Form1: TForm1
           GradientEndColor = clMenu
           ScrollBars = ssVertical
           TabOrder = 1
-          ExplicitHeight = 419
           ColWidths = (
             180
             180
@@ -500,8 +477,6 @@ object Form1: TForm1
         Align = alClient
         Caption = 'Panel12'
         TabOrder = 4
-        ExplicitWidth = 1094
-        ExplicitHeight = 574
         object TarifsGrid: TStringGrid
           Left = 1
           Top = 1
@@ -517,7 +492,6 @@ object Form1: TForm1
           GradientEndColor = clMenu
           ScrollBars = ssVertical
           TabOrder = 0
-          ExplicitHeight = 467
           ColWidths = (
             180
             180
@@ -538,8 +512,6 @@ object Form1: TForm1
         Align = alClient
         Caption = 'Panel13'
         TabOrder = 5
-        ExplicitWidth = 1094
-        ExplicitHeight = 574
         object ResultsGrid: TStringGrid
           Left = 1
           Top = 1
@@ -571,8 +543,6 @@ object Form1: TForm1
           ScrollBars = ssVertical
           ShowHint = False
           TabOrder = 0
-          ExplicitLeft = 0
-          ExplicitHeight = 419
           ColWidths = (
             180
             180
@@ -591,8 +561,6 @@ object Form1: TForm1
           Height = 48
           Align = alBottom
           TabOrder = 1
-          ExplicitTop = 424
-          ExplicitWidth = 1098
           object Label7: TLabel
             Left = 16
             Top = 18
@@ -628,6 +596,21 @@ object Form1: TForm1
         Top = 5
         Width = 23
         Height = 22
+        Glyph.Data = {
+          76010000424D7601000000000000760000002800000020000000100000000100
+          04000000000000010000120B0000120B00001000000000000000000000000000
+          800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+          333333333333333333333333333333333333333333FFFFF3333333333CCCCC33
+          33333FFFF77777FFFFFFCCCCCC808CCCCCC377777737F777777F008888070888
+          8003773FFF7773FFF77F0F0770F7F0770F037F777737F777737F70FFFFF7FFFF
+          F07373F3FFF7F3FFF37F70F000F7F000F07337F77737F777373330FFFFF7FFFF
+          F03337FF3FF7F3FF37F3370F00F7F00F0733373F7737F77337F3370FFFF7FFFF
+          0733337F33373F337333330FFF030FFF03333373FF7373FF7333333000333000
+          3333333777333777333333333333333333333333333333333333333333333333
+          3333333333333333333333333333333333333333333333333333}
+        NumGlyphs = 2
+        OnClick = SpeedButton2Click
       end
     end
     object Memo1: TMemo
@@ -640,8 +623,6 @@ object Form1: TForm1
         'Memo1')
       TabOrder = 3
       Visible = False
-      ExplicitTop = 518
-      ExplicitWidth = 224
     end
   end
   object TransportdbConnection: TFDConnection
