@@ -31,6 +31,7 @@
 #include <Vcl.Grids.hpp>
 #include <Vcl.WinXCtrls.hpp>
 #include <Vcl.Buttons.hpp>
+#include <Vcl.Dialogs.hpp>
 
 
 #include <vector>
@@ -95,6 +96,7 @@ __published:	// IDE-managed Components
 	TSpeedButton *Button2;
 	TSpeedButton *SpeedButton1;
 	TSpeedButton *SpeedButton2;
+	TFileOpenDialog *FileOpenDialog1;
 
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall Button1Click(TObject *Sender);

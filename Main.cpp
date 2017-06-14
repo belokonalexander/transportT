@@ -48,6 +48,39 @@ void initResultsView(Result*);
 //---------------------------------------------------------------------------
 void __fastcall TForm1::FormCreate(TObject *Sender)
 {
+
+
+		 FILE *FOpen;
+
+//if(Form1->FileOpenDialog1->Execute())
+//	{
+
+
+		UnicodeString sTest = Form1->FileOpenDialog1->FileName;
+		const wchar_t * wchTest = sTest.c_str();
+		const AnsiString sAnsi = sTest;
+		const char *chTest = sAnsi.c_str();
+
+
+		FOpen = fopen(chTest, "r+");
+
+		if( FOpen == NULL )
+		{
+			ShowMessage("The file could not be opened");
+			return;
+		}
+
+		char server[30];
+		fscanf(FOpen, "%s", server);
+		Form1->TransportdbConnection->Params->Add(server);
+
+//	}
+
+		fclose(FOpen);
+
+
+
+
 struct tm * timeinfo;
 time_t rawtime;
  time ( &rawtime );
@@ -223,6 +256,8 @@ void initDatabase(String from, String to){
 
 	}
 
+	Form1->ReserveCount->Caption = Form1->ReserveCount->Caption + " (тонн)";
+
 	query->Close();
 
 	query->SQL->Text = "SELECT * FROM dbo.getRecievers(\'" + from + "\',\'" + to + "\') ORDER BY R_ST_FULLNAME";
@@ -241,6 +276,8 @@ void initDatabase(String from, String to){
 		query->Next();
 	}
 
+
+    Form1->NeedsCount->Caption = Form1->NeedsCount->Caption + " (тонн)";
 	query->Close();
 
 	query->SQL->Text = "SELECT * FROM dbo.getTarifMatrix(\'" + from + "\',\'" + to + "\') ORDER BY P_ST_FULLNAME, R_ST_FULLNAME";
@@ -276,6 +313,7 @@ void initDatabase(String from, String to){
 		query->Next();
 	}
 
+	Form1->ResultCost->Caption = Form1->ResultCost->Caption + " (руб)";
 	query->Close();
 
 

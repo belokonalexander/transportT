@@ -622,15 +622,27 @@ object Form1: TForm1
       Lines.Strings = (
         'Memo1')
       TabOrder = 3
-      Visible = False
     end
   end
   object TransportdbConnection: TFDConnection
     Params.Strings = (
-      'ConnectionDef=TransportDB')
-    Connected = True
+      'User_Name=transport'
+      'ApplicationName=Architect'
+      'Workstation=DESKTOP-C0NPIOE'
+      'MARS=yes'
+      'OSAuthent=No'
+      'ConnectionDef=TransportDB'
+      'Server=1')
     LoginPrompt = False
     Left = 130
     Top = 502
+  end
+  object FileOpenDialog1: TFileOpenDialog
+    FavoriteLinks = <>
+    FileName = 'D:\Repo\transportT\Debug\connection.txt'
+    FileTypes = <>
+    Options = []
+    Left = 121
+    Top = 444
   end
 end
